@@ -1,15 +1,46 @@
 ---
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <div class='container'>
+    <div class='title'>
+      <h1>Astro</h1>
+      <h2>As simple as I can make it!</h2>
+    </div>
+    <section>
+      <p>This is going to be where I put in some content and play around with how this works!</p>
+      <p>
+        I am going to go into all of the aspects of Astro and figure out what works, by trying out a
+        lot of things.
+      </p>
+      <p>Here is another paragraph tag - and this is more content!</p>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .title {
+    padding: 20px 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin: 16px 0;
+  }
+
+  .container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+</style>
