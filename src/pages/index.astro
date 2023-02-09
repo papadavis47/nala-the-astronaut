@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import { Picture } from '@astrojs/image/components';
+// import nalaPic from '../images/nala-playing.jpg';
 ---
 
 <MainLayout>
@@ -16,6 +18,15 @@ import MainLayout from '../layouts/MainLayout.astro';
       </p>
       <p>Here is another paragraph tag - and this is more content!</p>
     </section>
+    <figure>
+      <Picture
+        src={import('../images/nala-playing.jpg')}
+        alt='Golden Retriever Playing on a lawn'
+        widths={[200, 300, 600]}
+        sizes='(max-width: 600px) 100vw, 600px'
+        aspect-ratio='1:1'
+      />
+    </figure>
   </div>
 </MainLayout>
 
@@ -42,5 +53,9 @@ import MainLayout from '../layouts/MainLayout.astro';
   .container {
     max-width: 80%;
     margin: 0 auto;
+  }
+
+  figure {
+    padding: 24px 0;
   }
 </style>
