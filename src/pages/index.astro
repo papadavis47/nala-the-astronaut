@@ -26,18 +26,19 @@ import sleepingNala from '@images/nala-sleeping.jpg';
       <Picture
         src={nalaPic}
         alt='Golden Retriever playing on a lawn'
-        widths={[200, 300, 600]}
-        sizes='(max-width: 600px) 100vw, 600px'
+        widths={[200, 300, 600, 800]}
+        sizes='(max-width: 800px) 100vw, 800px'
         aspect-ratio='1:1'
       />
       <figcaption>Nala playing fetch - 2023</figcaption>
     </figure>
     <figure>
       <Picture
-        widths={[200, 300, 600]}
-        sizes='(max-width: 600px) 100vw, 600px'
+        widths={[200, 300, 600, 800]}
+        sizes='(max-width: 800px)100vw, 800px'
         src={sleepingNala}
         alt='Golder Retriever sleeping on carpet'
+        aspectRatio='1:1'
       />
       <figcaption>Nala sleeping - 2023</figcaption>
     </figure>
@@ -66,14 +67,12 @@ import sleepingNala from '@images/nala-sleeping.jpg';
 
   .container {
     margin: 16px 16px;
-    padding: 0 16px;
+    padding: 16px 20px;
   }
 
-  @media (min-width: 800px) {
-    .container {
-      max-width: 70%;
-      margin: 0 auto;
-    }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   figure {
