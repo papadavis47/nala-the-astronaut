@@ -1,31 +1,45 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import { Picture } from '@astrojs/image/components';
-// import nalaPic from '../images/nala-playing.jpg';
+import MainLayout from '@layouts/MainLayout.astro';
+import { Picture, Image } from '@astrojs/image/components';
+import nalaPic from '@images/nala-playing.jpg';
+import sleepingNala from '@images/nala-sleeping.jpg';
 ---
 
 <MainLayout>
   <div class='container'>
     <div class='title'>
-      <h1>Astro</h1>
-      <h2>As simple as I can make it!</h2>
+      <h1>Nala</h1>
+      <h2>Our First Dog</h2>
     </div>
     <section>
-      <p>This is going to be where I put in some content and play around with how this works!</p>
       <p>
-        I am going to go into all of the aspects of Astro and figure out what works, by trying out a
-        lot of things.
+        The Davis Family never had a dog before Nala. We knew nothing about raising a dog prior to
+        her arrival at our home.
       </p>
-      <p>Here is another paragraph tag - and this is more content!</p>
+      <p>
+        This site is about our love for her and the work and learning that goes into caring for
+        Nala.
+      </p>
+      <p>This is little space on the web is a <strong>tribute to our Nala!</strong></p>
     </section>
     <figure>
       <Picture
-        src={import('../images/nala-playing.jpg')}
-        alt='Golden Retriever Playing on a lawn'
+        src={nalaPic}
+        alt='Golden Retriever playing on a lawn'
         widths={[200, 300, 600]}
         sizes='(max-width: 600px) 100vw, 600px'
         aspect-ratio='1:1'
       />
+      <figcaption>Nala playing fetch - 2023</figcaption>
+    </figure>
+    <figure>
+      <Picture
+        widths={[200, 300, 600]}
+        sizes='(max-width: 600px) 100vw, 600px'
+        src={sleepingNala}
+        alt='Golder Retriever sleeping on carpet'
+      />
+      <figcaption>Nala sleeping - 2023</figcaption>
     </figure>
   </div>
 </MainLayout>
@@ -51,11 +65,21 @@ import { Picture } from '@astrojs/image/components';
   }
 
   .container {
-    max-width: 80%;
-    margin: 0 auto;
+    margin: 16px 16px;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 800px) {
+    .container {
+      max-width: 70%;
+      margin: 0 auto;
+    }
   }
 
   figure {
     padding: 24px 0;
+  }
+
+  img {
   }
 </style>
