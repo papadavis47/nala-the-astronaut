@@ -1,3 +1,8 @@
+---
+import Footer from '@components/Footer.astro';
+import NavBar from '@components/NavBar.astro';
+---
+
 <html lang='en'>
   <head>
     <meta charset='utf-8' />
@@ -7,11 +12,19 @@
     <title>Nala - Our First Dog</title>
   </head>
   <body>
-    <slot />
+    <div class='layoutWrapper'>
+      <NavBar />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
 
 <style is:global>
+  .layoutWrapper {
+    height: 100%;
+  }
+
   /*
   1. Use a more-intuitive box-sizing model.
 */
