@@ -23,6 +23,11 @@ import NavBar from '@components/NavBar.astro';
 </html>
 
 <style is:global>
+  /* Variables here */
+
+  :root {
+    --main-background: hsl(16, 33%, 95%);
+  }
   .layoutWrapper {
     min-height: 100%;
     display: flex;
@@ -31,7 +36,7 @@ import NavBar from '@components/NavBar.astro';
 
   .contentWrapper {
     flex: 1;
-    background-color: hsl(16, 33%, 95%);
+    background-color: var(--main-background);
   }
 
   /*
