@@ -1,7 +1,9 @@
 ---
 import Footer from '@components/Footer.astro';
 import NavBar from '@components/NavBar.astro';
-import '@styles/globals.css';
+import '@fontsource/roboto';
+import '@fontsource/open-sans';
+import '@styles/variables.css';
 ---
 
 <html lang='en'>
@@ -37,6 +39,25 @@ import '@styles/globals.css';
     background-color: var(--main-background);
   }
 
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  figcaption {
+    color: var(--text);
+    font-size: 1rem;
+    padding: 8px 0;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1,
+  h2 {
+    color: var(--headings);
+  }
+
   /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -66,6 +87,7 @@ import '@styles/globals.css';
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-family: 'Robot', sans-serif;
   }
   /*
   6. Improve media defaults
