@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon';
+const MAIN_BREAKPOINT = '700px';
 ---
 
 <nav>
@@ -9,9 +10,12 @@ import { Icon } from 'astro-icon';
       <ul>
         <li><a href='#'>Home</a></li>
         <li><a href='#'>About Nala</a></li>
-        <li><a href='#'>MDX Notes</a></li>
-        <li><a href='#'>About The Tech</a></li>
+        <li><a href='#'>Astro</a></li>
+        <li><a href='#'>MDX</a></li>
       </ul>
+      <button>
+        <Icon name='radix-icons:hamburger-menu' />
+      </button>
     </div>
   </div>
 </nav>
@@ -20,6 +24,19 @@ import { Icon } from 'astro-icon';
   [astro-icon='mdi:dog-side'] {
     color: inherit;
     width: 56px;
+  }
+
+  [astro-icon='radix-icons:hamburger-menu'] {
+    color: inherit;
+    width: 24px;
+  }
+
+  button {
+    display: block;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
   }
 
   nav {
@@ -33,12 +50,18 @@ import { Icon } from 'astro-icon';
     justify-content: space-between;
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 24px;
     align-items: center;
   }
 
   ul {
     display: none;
+  }
+
+  @media (min-width: 700px) {
+    button {
+      display: none;
+    }
   }
 
   @media (min-width: 700px) {
