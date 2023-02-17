@@ -4,11 +4,11 @@ import { Icon } from 'astro-icon';
 
 <nav>
   <div class='menu-container'>
-    <Icon name='mdi:dog-side' />
+    <a href='/'> <Icon name='mdi:dog-side' /></a>
     <div class='links-container'>
       <ul>
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>About Nala</a></li>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/about'>About Nala</a></li>
         <li><a href='#'>Astro</a></li>
         <li><a href='#'>MDX</a></li>
       </ul>
@@ -20,14 +20,38 @@ import { Icon } from 'astro-icon';
 </nav>
 
 <style>
+  /* Icons  */
+
   [astro-icon='mdi:dog-side'] {
-    color: inherit;
+    color: white;
     width: 56px;
   }
 
   [astro-icon='radix-icons:hamburger-menu'] {
-    color: inherit;
+    color: white;
     width: 24px;
+  }
+
+  /* --- */
+
+  /* Class Selectors */
+
+  .menu-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    align-items: center;
+  }
+
+  /* ---- */
+
+  /* Element Selectors */
+
+  li a:hover {
+    background: var(--hover);
+    border-radius: 5%;
   }
 
   button {
@@ -44,30 +68,8 @@ import { Icon } from 'astro-icon';
     padding: 8px 0;
   }
 
-  .menu-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 24px;
-    align-items: center;
-  }
-
   ul {
     display: none;
-  }
-
-  @media (min-width: 700px) {
-    button {
-      display: none;
-    }
-  }
-
-  @media (min-width: 700px) {
-    ul {
-      display: flex;
-      align-items: center;
-    }
   }
 
   li {
@@ -78,9 +80,29 @@ import { Icon } from 'astro-icon';
     display: block;
     color: inherit;
     text-decoration: none;
-    font-size: 1.5rem;
-    padding: 8px 16px;
-    margin-bottom: -12px;
+    font-size: 1.2rem;
+    padding: 10px 12px;
+    margin-top: 12px;
     white-space: nowrap;
   }
+
+  /* ------- */
+
+  /* Media Queries */
+
+  @media (min-width: 700px) {
+    button {
+      display: none;
+    }
+  }
+
+  @media (min-width: 700px) {
+    ul {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+
+  /* ------ */
 </style>

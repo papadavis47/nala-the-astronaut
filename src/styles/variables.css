@@ -3,4 +3,5 @@
   --first-gradient: linear-gradient(to right top, hsl(45, 60%, 48%), hsl(42, 86%, 32%));
   --text: hsl(0, 0%, 29%);
   --headings: hsla(0, 16%, 29%, 1);
+  --hover: hsl(45, 60%, 48%, 0.2);
 }
