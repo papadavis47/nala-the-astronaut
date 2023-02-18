@@ -11,7 +11,11 @@ import { Icon } from 'astro-icon';
     >
       <Icon name='grommet-icons:github' /></a
     >
-    <span>Made with &hearts; & Astro</span>
+    <span
+      >Made with &hearts; & <a target='_blank' rel='noopener noreferrer' href='https://astro.build'
+        >Astro</a
+      ></span
+    >
   </div>
 </footer>
 
@@ -35,8 +39,14 @@ import { Icon } from 'astro-icon';
   }
 
   span {
-    color: inherit;
+    color: white;
     font-size: 1.25rem;
     font-weight: 500;
+    margin-top: 12px;
+  }
+
+  span a {
+    color: white;
+    text-decoration: none;
   }
 </style>
