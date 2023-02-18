@@ -4,6 +4,12 @@ import NavBar from '@components/NavBar.astro';
 import '@fontsource/roboto';
 import '@fontsource/open-sans';
 import '@styles/variables.css';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <html lang='en'>
@@ -12,7 +18,7 @@ import '@styles/variables.css';
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
-    <title>Nala - Our First Dog</title>
+    <title>{title}</title>
   </head>
   <body>
     <div class='layoutWrapper'>
@@ -26,8 +32,6 @@ import '@styles/variables.css';
 </html>
 
 <style is:global>
-  /* Variables here */
-
   .layoutWrapper {
     min-height: 100%;
     display: flex;
@@ -39,10 +43,25 @@ import '@styles/variables.css';
     background-color: var(--main-background);
   }
 
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
   p {
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     color: var(--text);
+    font-size: 1.25rem;
+    margin: 16px 0;
   }
 
   figcaption {
@@ -53,8 +72,13 @@ import '@styles/variables.css';
     font-family: 'Open Sans', sans-serif;
   }
 
+  figure {
+    padding: 24px 0;
+  }
+
   h1,
-  h2 {
+  h2,
+  h3 {
     color: var(--headings);
   }
 

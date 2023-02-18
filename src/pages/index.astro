@@ -5,13 +5,14 @@ import nalaPic from '@images/nala-playing.jpg';
 import sleepingNala from '@images/nala-sleeping.jpg';
 ---
 
-<MainLayout>
+<MainLayout title='Nala the Astronaut - Home'>
   <div class='container'>
     <div class='title'>
       <h1>Nala</h1>
-      <h2>Our First Dog</h2>
+      <h2>The Astronaut</h2>
     </div>
     <section>
+      <h3>Our First Dog</h3>
       <p>
         The Davis Family never had a dog before Nala. We knew nothing about raising a dog prior to
         her arrival at our home.
@@ -20,7 +21,7 @@ import sleepingNala from '@images/nala-sleeping.jpg';
         This site is about our love for her and the work and learning that goes into caring for
         Nala.
       </p>
-      <p>This is little space on the web is a <strong>tribute to our Nala!</strong></p>
+      <p>This is little space on the web is a <strong>celebration of our Nala!</strong></p>
     </section>
     <figure>
       <Picture
@@ -30,7 +31,7 @@ import sleepingNala from '@images/nala-sleeping.jpg';
         sizes='(max-width: 900px) 900px'
         aspect-ratio='1:1'
       />
-      <figcaption>Nala playing fetch - 2023</figcaption>
+      <!-- <figcaption>Nala playing fetch - 2023</figcaption> -->
     </figure>
     <figure>
       <Picture
@@ -40,7 +41,7 @@ import sleepingNala from '@images/nala-sleeping.jpg';
         alt='Golder Retriever sleeping on carpet'
         aspectRatio='1:1'
       />
-      <figcaption>Nala sleeping - 2023</figcaption>
+      <!-- <figcaption>Nala sleeping - 2023</figcaption> -->
     </figure>
   </div>
 </MainLayout>
@@ -50,30 +51,13 @@ import sleepingNala from '@images/nala-sleeping.jpg';
     padding: 20px 0;
   }
 
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin: 16px 0;
-  }
-
   .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 16px 20px;
   }
 
-  figure {
-    padding: 24px 0;
-  }
-
   img {
+    border-radius: 2%;
   }
 </style>

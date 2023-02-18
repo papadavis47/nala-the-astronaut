@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
+    "@astrojs/mdx": "^0.17.0",
     "@fontsource/open-sans": "^4.5.14",
     "@fontsource/roboto": "^4.5.8",
     "astro": "^2.0.7",
