@@ -3,6 +3,7 @@ import MainLayout from '@layouts/MainLayout.astro';
 import { Picture } from '@astrojs/image/components';
 import nalaPic from '@images/nala-playing.jpg';
 import sleepingNala from '@images/nala-sleeping.jpg';
+import nalaPortrait from '@images/nala-portrait.jpg';
 ---
 
 <MainLayout title='Nala the Astronaut - Home'>
@@ -10,54 +11,59 @@ import sleepingNala from '@images/nala-sleeping.jpg';
     <div class='title'>
       <h1>Nala</h1>
       <h2>The Astronaut</h2>
+      <section>
+        <h3>Our First Dog</h3>
+        <p>
+          The Davis Family never had a dog before Nala. We knew nothing about raising a dog prior to
+          her arrival at our home.
+        </p>
+        <p>
+          This site is about our love for her and the work and learning that goes into caring for
+          Nala.
+        </p>
+        <p>This is little space on the web is a <strong>celebration of our Nala!</strong></p>
+      </section>
+      <figure>
+        <Picture
+          src={nalaPic}
+          alt='Golden Retriever playing on a lawn'
+          widths={[200, 300, 600, 900]}
+          sizes='(max-width: 900px) 900px'
+          aspect-ratio='1:1'
+        />
+        <!-- <figcaption>Nala playing fetch - 2023</figcaption> -->
+      </figure>
+      <figure>
+        <Picture
+          widths={[200, 300, 600, 900]}
+          sizes='(max-width: 900px) 900px'
+          src={sleepingNala}
+          alt='Golder Retriever sleeping on carpet'
+          aspectRatio='1:1'
+        />
+        <!-- <figcaption>Nala sleeping - 2023</figcaption> -->
+      </figure>
     </div>
-    <section>
-      <h3>Our First Dog</h3>
-      <p>
-        The Davis Family never had a dog before Nala. We knew nothing about raising a dog prior to
-        her arrival at our home.
-      </p>
-      <p>
-        This site is about our love for her and the work and learning that goes into caring for
-        Nala.
-      </p>
-      <p>This is little space on the web is a <strong>celebration of our Nala!</strong></p>
-    </section>
-    <figure>
-      <Picture
-        src={nalaPic}
-        alt='Golden Retriever playing on a lawn'
-        widths={[200, 300, 600, 900]}
-        sizes='(max-width: 900px) 900px'
-        aspect-ratio='1:1'
-      />
-      <!-- <figcaption>Nala playing fetch - 2023</figcaption> -->
-    </figure>
-    <figure>
-      <Picture
-        widths={[200, 300, 600, 900]}
-        sizes='(max-width: 900px) 900px'
-        src={sleepingNala}
-        alt='Golder Retriever sleeping on carpet'
-        aspectRatio='1:1'
-      />
-      <!-- <figcaption>Nala sleeping - 2023</figcaption> -->
-    </figure>
   </div>
+
+  <style>
+    .title {
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px 28px;
+    }
+
+    section {
+      margin-top: 24px;
+      padding-top: 12px;
+    }
+
+    img {
+      border-radius: 2%;
+    }
+  </style>
 </MainLayout>
-
-<style>
-  .title {
-    padding: 20px 0;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 16px 32px;
-  }
-
-  img {
-    border-radius: 2%;
-  }
-</style>
