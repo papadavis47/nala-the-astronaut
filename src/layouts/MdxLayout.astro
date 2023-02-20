@@ -1,0 +1,29 @@
+---
+import MainLayout from './MainLayout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout title={frontmatter.title}>
+  <div class='mdx-wrapper'>
+    <h1>{frontmatter.title}</h1>
+    <p>Let's see how this goes!</p>
+
+    <slot />
+  </div>
+</MainLayout>
+
+<style>
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-weight: 600;
+  }
+
+  .mdx-wrapper {
+    max-width: 1000px;
+    margin: 32px auto;
+    padding: 0 24px;
+  }
+</style>
