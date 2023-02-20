@@ -1,0 +1,25 @@
+---
+interface Props {
+  heading: string;
+  subheading: string;
+}
+
+const { heading, subheading } = Astro.props;
+---
+
+<div class='title'>
+  <h1>{heading}</h1>
+  <h2>{subheading}</h2>
+</div>
+
+<style>
+  .title {
+    padding: 20px 0;
+    line-height: 1;
+  }
+
+  h1,
+  h2 {
+    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
+  }
+</style>

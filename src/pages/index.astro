@@ -1,5 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import Heading from '@components/Heading.astro';
+import Container from '@components/Container.astro';
 import { Picture } from '@astrojs/image/components';
 import nalaPic from '@images/nala-playing.jpg';
 import sleepingNala from '@images/nala-sleeping.jpg';
@@ -7,11 +9,8 @@ import nalaPortrait from '@images/nala-portrait.jpg';
 ---
 
 <MainLayout title='Nala the Astronaut - Home'>
-  <div class='container'>
-    <div class='title'>
-      <h1>Nala</h1>
-      <h2>The Astronaut</h2>
-    </div>
+  <Container>
+    <Heading heading='Nala' subheading='The Astronaut' />
     <section>
       <h3>Our First Dog</h3>
       <p>
@@ -29,7 +28,7 @@ import nalaPortrait from '@images/nala-portrait.jpg';
         src={nalaPic}
         alt='Golden Retriever playing on a lawn'
         widths={[200, 300, 600, 900]}
-        sizes='(max-width: 900px) 900px'
+        sizes='(max-width: 900px) 100vw 900px'
         aspect-ratio='1:1'
       />
       <!-- <figcaption>Nala playing fetch - 2023</figcaption> -->
@@ -37,40 +36,27 @@ import nalaPortrait from '@images/nala-portrait.jpg';
     <figure>
       <Picture
         widths={[200, 300, 600, 900]}
-        sizes='(max-width: 900px) 900px'
+        sizes='(max-width: 900px)100vw 900px'
         src={sleepingNala}
         alt='Golder Retriever sleeping on carpet'
         aspectRatio='1:1'
       />
       <!-- <figcaption>Nala sleeping - 2023</figcaption> -->
     </figure>
-  </div>
-
-  <style>
-    .title {
-      padding: 20px 0;
-      line-height: 0.85;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 16px 28px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
-    }
-
-    section {
-      margin-top: 24px;
-      padding-top: 12px;
-    }
-
-    img {
-      border-radius: 2%;
-    }
-  </style>
+  </Container>
 </MainLayout>
+
+<style>
+  h3 {
+    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
+  }
+
+  section {
+    margin-top: 24px;
+    padding-top: 12px;
+  }
+
+  img {
+    border-radius: 2%;
+  }
+</style>

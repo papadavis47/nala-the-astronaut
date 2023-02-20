@@ -1,4 +1,11 @@
 ---
+import MainLayout from '@layouts/MainLayout.astro';
+import Heading from '@components/Heading.astro';
+import Container from '@components/Container.astro';
 ---
 
-<h1>Astro Story</h1>
+<MainLayout title='Astro'>
+  <Container>
+    <Heading heading='Astro' subheading='Falling in Love' />
+  </Container>
+</MainLayout>
