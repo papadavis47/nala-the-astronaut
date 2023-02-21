@@ -5,7 +5,7 @@ import Container from '@components/Container.astro';
 import { Picture } from '@astrojs/image/components';
 import nalaPic from '@images/nala-playing.jpg';
 import sleepingNala from '@images/nala-sleeping.jpg';
-import nalaPortrait from '@images/nala-portrait.jpg';
+import nalita from '@images/nalita.jpg';
 ---
 
 <MainLayout title='Nala the Astronaut - Home'>
@@ -25,13 +25,21 @@ import nalaPortrait from '@images/nala-portrait.jpg';
     </section>
     <figure>
       <Picture
+        src={nalita}
+        alt='Golden Retriever portrait'
+        widths={[200, 300, 600, 900]}
+        sizes='(max-width: 900px) 100vw 900px'
+        aspect-ratio='1:1'
+      />
+    </figure>
+    <figure>
+      <Picture
         src={nalaPic}
         alt='Golden Retriever playing on a lawn'
         widths={[200, 300, 600, 900]}
         sizes='(max-width: 900px) 100vw 900px'
         aspect-ratio='1:1'
       />
-      <!-- <figcaption>Nala playing fetch - 2023</figcaption> -->
     </figure>
     <figure>
       <Picture
@@ -41,7 +49,6 @@ import nalaPortrait from '@images/nala-portrait.jpg';
         alt='Golder Retriever sleeping on carpet'
         aspectRatio='1:1'
       />
-      <!-- <figcaption>Nala sleeping - 2023</figcaption> -->
     </figure>
   </Container>
 </MainLayout>
