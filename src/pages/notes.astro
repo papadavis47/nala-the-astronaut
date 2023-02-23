@@ -2,9 +2,13 @@
 import MainLayout from '@layouts/MainLayout.astro';
 import Heading from '@components/Heading.astro';
 import Container from '@components/Container.astro';
-import { getCollection } from 'astro:content';
+import { CollectionEntry, getCollection } from 'astro:content';
 import NoteCard from '@components/NoteCard.astro';
 const notesEntries = await getCollection('notes');
+
+interface Props {
+  note: CollectionEntry<'notes'>;
+}
 ---
 
 <MainLayout title='MDX Notes'>
@@ -22,6 +26,7 @@ const notesEntries = await getCollection('notes');
                 title={note.data.title}
                 pubDate={note.data.pubDate.toDateString()}
                 tags={note.data.tags}
+                {...note}
               />
             </div>
           );
