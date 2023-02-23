@@ -1,13 +1,14 @@
 ---
 import MainLayout from './MainLayout.astro';
-
+import Container from '@components/Container.astro';
+import { getEntryBySlug } from 'astro:content';
 const { title } = Astro.props;
 ---
 
 <MainLayout title={title}>
-  <div class='mdx-wrapper'>
+  <Container>
     <slot />
-  </div>
+  </Container>
 </MainLayout>
 
 <style>

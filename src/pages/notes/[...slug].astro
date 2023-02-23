@@ -16,6 +16,13 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<MdxLayout frontmatter={entry.data}>
+<MdxLayout frontmatter={entry.data} title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
   <Content />
 </MdxLayout>
+
+<style>
+  h1 {
+    font-size: 4rem;
+  }
+</style>
