@@ -47,8 +47,14 @@ const { title } = Astro.props;
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     color: var(--text);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin: 16px 0;
+  }
+
+  @media (min-width: 900px) {
+    p {
+      font-size: 1.25rem;
+    }
   }
 
   figcaption {
