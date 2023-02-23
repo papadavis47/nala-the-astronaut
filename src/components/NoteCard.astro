@@ -1,0 +1,28 @@
+---
+// import type { CollectionEntry } from 'astro:content';
+// interface Props {
+//   note: CollectionEntry<'notes'>;
+// }
+
+// const { note } = Astro.props;
+
+const { url, title, description, pubDate, tags } = Astro.props;
+---
+
+<article>
+  <!-- <p><a href={`/notes/${note.slug}`}>{note.data.title}</a></p>
+
+  <p>{note.data.description}</p>
+  <span>{note.data.pubDate.toDateString()}</span> -->
+  <h2><a href={url}>{title}</a></h2>
+  <p>{description}</p>
+  <span>{pubDate}</span>
+
+  {tags.map((tag) => <span>#{tag}</span>)}
+</article>
+
+<style>
+  article {
+    background: pink;
+  }
+</style>

@@ -8,6 +8,10 @@
   --hover: hsl(45, 60%, 48%, 0.2);
 }
 
+code {
+  font-size: 1.1rem;
+}
+
 /* Begin Comeau reset below:  */
 
 /*
