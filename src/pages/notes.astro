@@ -1,0 +1,34 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import Heading from '@components/Heading.astro';
+import Container from '@components/Container.astro';
+import { getCollection } from 'astro:content';
+const notesEntries = await getCollection('notes');
+---
+
+<MainLayout title='MDX Notes'>
+  <Container>
+    <Heading heading='MDX Notes' subheading='An Experiment' />
+    <h2>Here are my notes:</h2>
+    <ul>
+      {
+        notesEntries.map((note) => {
+          return (
+            <li>
+              <a href={`/notes/${note.slug}`}>{note.data.title}</a>
+              <p>{note.data.description}</p>
+              <span>{note.data.pubDate.toDateString()}</span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Container>
+</MainLayout>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+</style>

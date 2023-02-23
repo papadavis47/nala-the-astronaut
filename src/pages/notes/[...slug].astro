@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import MdxLayout from '@layouts/MdxLayout.astro';
+
+export async function getStaticPaths() {
+  const notesEntries = await getCollection('notes');
+  return notesEntries.map((entry) => {
+    return {
+      params: { slug: entry.slug },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<MdxLayout frontmatter={entry.data}>
+  <Content />
+</MdxLayout>
