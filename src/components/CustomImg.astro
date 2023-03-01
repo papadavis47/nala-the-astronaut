@@ -1,0 +1,19 @@
+---
+const { filename, alt, sizes, widths, loading } = Astro.props;
+
+import { Picture } from '@astrojs/image/components';
+
+const { width } = (await import(`../images/${filename}.jpg`)).default;
+---
+
+<figure>
+  <Picture
+    src={import(`../images/${filename}.jpg`)}
+    loading={loading ? loading : 'lazy'}
+    width={width}
+    widths={widths}
+    sizes={sizes}
+    alt={alt}
+    aspectRatio={aspectRatio}
+  />
+</figure>
