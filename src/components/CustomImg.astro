@@ -1,9 +1,9 @@
 ---
-const { filename, alt, sizes, widths, loading } = Astro.props;
+const { filename, alt, sizes, widths, loading, aspectRatio } = Astro.props;
 
 import { Picture } from '@astrojs/image/components';
 
-const { width } = (await import(`../images/${filename}.jpg`)).default;
+const { width, height } = (await import(`../images/${filename}.jpg`)).default;
 ---
 
 <figure>
@@ -11,9 +11,17 @@ const { width } = (await import(`../images/${filename}.jpg`)).default;
     src={import(`../images/${filename}.jpg`)}
     loading={loading ? loading : 'lazy'}
     width={width}
+    height={height}
     widths={widths}
     sizes={sizes}
     alt={alt}
     aspectRatio={aspectRatio}
   />
 </figure>
+
+<style>
+  img {
+    height: auto;
+    border-radius: 1%;
+  }
+</style>
