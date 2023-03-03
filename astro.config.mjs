@@ -9,8 +9,19 @@ import image from '@astrojs/image';
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
+import alpinejs from "@astrojs/alpinejs";
+
+// https://astro.build/config
+import react from "@astrojs/react";
+
+// https://astro.build/config
+import solidJs from "@astrojs/solid-js";
+
+// https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx()]
+  }), mdx(), alpinejs(), react(), solidJs()]
 });
