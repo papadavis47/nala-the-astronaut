@@ -15,14 +15,54 @@ const { url, title, description, pubDate, tags } = Astro.props;
   <p>{note.data.description}</p>
   <span>{note.data.pubDate.toDateString()}</span> -->
   <h2><a href={url}>{title}</a></h2>
-  <p>{description}</p>
-  <span>{pubDate}</span>
-
-  {tags.map((tag) => <span>#{tag}</span>)}
+  <p>{description}...</p>
+  <span class='date'>{pubDate}</span>
+  <div class='tag-container'>
+    {tags.map((tag) => <span>#{tag}</span>)}
+  </div>
 </article>
 
 <style>
   article {
-    background: pink;
+    margin: 24px 0;
+    background: var(--card-background);
+    padding: 18px 22px;
+    border: 4px solid goldenrod;
+    border-radius: 1%;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--headings);
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
+    letter-spacing: 0.2rem;
+  }
+
+  p {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: var(--headings);
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .tag-container {
+    display: flex;
+    gap: 16px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+    color: var(--headings);
+    font-weight: 900;
+    font-size: 1.2rem;
+    padding: 16px 0;
+  }
+
+  .tag-container span {
+    line-height: 0.5;
   }
 </style>

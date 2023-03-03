@@ -7,7 +7,13 @@ import { Icon } from 'astro-icon';
     <a href='/'> <Icon name='mdi:dog-side' /></a>
     <div class='links-container'>
       <ul>
-        <li><a href='/'>Home</a></li>
+        {
+          Astro.url.pathname !== '/' && (
+            <li>
+              <a href='/'>Home</a>
+            </li>
+          )
+        }
         <li><a href='/about'>About Nala</a></li>
         <li><a href='/notes'>Notes</a></li>
         <li><a href='/astro-story'>Astro</a></li>

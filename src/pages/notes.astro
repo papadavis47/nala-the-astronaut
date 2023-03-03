@@ -14,7 +14,6 @@ interface Props {
 <MainLayout title='MDX Notes'>
   <Container>
     <Heading heading='MDX Notes' subheading='An Experiment' />
-    <h2>Here are my notes:</h2>
     <section>
       {
         notesEntries.map((note) => {
@@ -39,5 +38,9 @@ interface Props {
   ul {
     list-style-type: none;
     padding: 0;
+  }
+
+  section {
+    margin-top: 24px;
   }
 </style>
