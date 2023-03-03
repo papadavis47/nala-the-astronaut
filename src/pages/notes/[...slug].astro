@@ -17,19 +17,53 @@ const { Content } = await entry.render();
 ---
 
 <MdxLayout frontmatter={entry.data} title={entry.data.title}>
-  <h1>{entry.data.title}</h1>
+  <div class='title-container'>
+    <h1>{entry.data.title}</h1>
+  </div>
   <Content />
 
-  <div>
+  <div class='tag-container'>
     {entry.data.tags.map((tag) => <span>#{tag}</span>)}
   </div>
   <div>
-    <span><a href='/notes'>&larr; Go Back</a></span>
+    <span><a class='back-link' href='/notes'>&larr; Go Back</a></span>
   </div>
 </MdxLayout>
 
 <style>
   h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
+  }
+
+  div {
+    margin: 24px 0;
+    padding: 12px 0;
+  }
+
+  .tag-container {
+    display: flex;
+    gap: 16px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+    color: var(--headings);
+    font-weight: 900;
+    font-size: 1.2rem;
+    padding: 16px 0;
+  }
+
+  .tag-container span {
+    line-height: 0.5;
+  }
+
+  .back-link {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--headings);
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 </style>
