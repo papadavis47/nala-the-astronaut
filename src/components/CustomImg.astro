@@ -1,4 +1,13 @@
 ---
+interface Props {
+  filename: string;
+  alt: string;
+  sizes?: string;
+  widths?: number[];
+  loading?: 'lazy' | 'eager';
+  aspectRatio?: string;
+}
+
 const { filename, alt, sizes, widths, loading, aspectRatio } = Astro.props;
 
 import { Picture } from 'astro:assets';

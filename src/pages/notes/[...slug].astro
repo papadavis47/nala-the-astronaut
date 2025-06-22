@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import MdxLayout from '@layouts/MdxLayout.astro';
 
 export async function getStaticPaths() {
@@ -10,6 +10,10 @@ export async function getStaticPaths() {
       props: { entry },
     };
   });
+}
+
+interface Props {
+  entry: CollectionEntry<'notes'>;
 }
 
 const { entry } = Astro.props;

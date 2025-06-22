@@ -1,7 +1,13 @@
 ---
+interface Props {
+  title: string;
+  frontmatter?: Record<string, any>;
+}
+
 import MainLayout from './MainLayout.astro';
 import Container from '@components/Container.astro';
 import { getEntryBySlug } from 'astro:content';
+
 const { title } = Astro.props;
 ---
 

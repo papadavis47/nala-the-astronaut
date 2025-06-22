@@ -1,7 +1,10 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "strictNullChecks": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "noImplicitReturns": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": [
@@ -15,6 +18,9 @@
       ],
       "@styles/*": [
         "src/styles/*"
+      ],
+      "@types/*": [
+        "src/types/*"
       ]
     },
     "jsx": "react-jsx",

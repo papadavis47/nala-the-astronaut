@@ -1,10 +1,11 @@
 ---
-// import type { CollectionEntry } from 'astro:content';
-// interface Props {
-//   note: CollectionEntry<'notes'>;
-// }
-
-// const { note } = Astro.props;
+interface Props {
+  url: string;
+  title: string;
+  description: string;
+  pubDate: string;
+  tags: string[];
+}
 
 const { url, title, description, pubDate, tags } = Astro.props;
 ---
