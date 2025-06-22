@@ -3,7 +3,6 @@ import CustomImg from '@components/CustomImg.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 import Heading from '@components/Heading.astro';
 import Container from '@components/Container.astro';
-// import { Picture, Image } from '@astrojs/image/components';
 import nalita from '@images/nalita.jpg';
 import nalaPic from '@images/nala-playing.jpg';
 import sleepingNala from '@images/nala-sleeping.jpg';
@@ -12,8 +11,8 @@ import sleepingNala from '@images/nala-sleeping.jpg';
 <MainLayout title='Nala the Astronaut - Home'>
   <Container>
     <Heading heading='Nala' subheading='The Astronaut' />
-    <section>
-      <h3>Our First Dog</h3>
+    <section class='mt-6 pt-3'>
+      <h3 class='text-shadow-heading text-3xl'>Our First Dog</h3>
       <p>
         The Davis Family never had a dog before Nala. We knew nothing about raising a dog prior to
         her arrival at our home.
@@ -47,15 +46,3 @@ import sleepingNala from '@images/nala-sleeping.jpg';
     />
   </Container>
 </MainLayout>
-
-<style>
-  h3 {
-    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
-    font-size: 2rem;
-  }
-
-  section {
-    margin-top: 24px;
-    padding-top: 12px;
-  }
-</style>

@@ -17,54 +17,15 @@ const { Content } = await entry.render();
 ---
 
 <MdxLayout frontmatter={entry.data} title={entry.data.title}>
-  <div class='title-container'>
-    <h1>{entry.data.title}</h1>
+  <div class='my-6 py-3'>
+    <h1 class='text-5xl text-shadow-heading tracking-wide'>{entry.data.title}</h1>
   </div>
   <Content />
 
-  <div class='tag-container'>
-    {entry.data.tags.map((tag) => <span>#{tag}</span>)}
+  <div class='flex gap-4 my-3 flex-wrap text-headings font-black text-xl py-4'>
+    {entry.data.tags.map((tag) => <span class='leading-none'>#{tag}</span>)}
   </div>
-  <div>
-    <span><a class='back-link' href='/notes'>&larr; Go Back</a></span>
+  <div class='my-6 py-3'>
+    <span><a class='text-2xl font-bold no-underline text-headings hover:underline' href='/notes'>&larr; Go Back</a></span>
   </div>
 </MdxLayout>
-
-<style>
-  h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
-    letter-spacing: 0.1rem;
-  }
-
-  div {
-    margin: 24px 0;
-    padding: 12px 0;
-  }
-
-  .tag-container {
-    display: flex;
-    gap: 16px;
-    margin: 12px 0;
-    flex-wrap: wrap;
-    color: var(--headings);
-    font-weight: 900;
-    font-size: 1.2rem;
-    padding: 16px 0;
-  }
-
-  .tag-container span {
-    line-height: 0.5;
-  }
-
-  .back-link {
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--headings);
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-</style>

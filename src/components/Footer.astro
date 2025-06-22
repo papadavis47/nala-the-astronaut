@@ -1,18 +1,18 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 ---
 
-<footer>
-  <div class='container'>
+<footer class='bg-gold-gradient text-white border-t-2 border-white'>
+  <div class='flex flex-col items-center text-white my-3'>
     <a
       href='https://github.com/papadavis47/nala-the-astronaut'
       target='_blank'
       rel='noopener noreferrer'
     >
-      <Icon name='grommet-icons:github' /></a
-    >
-    <span
-      >Made with &hearts; & <a target='_blank' rel='noopener noreferrer' href='https://astro.build'
+      <Icon name='grommet-icons:github' class='w-[43px] h-[43px] text-white' />
+    </a>
+    <span class='text-white text-xl font-medium mt-3'
+      >Made with &hearts; & <a target='_blank' rel='noopener noreferrer' href='https://astro.build' class='text-white no-underline'
         >Astro</a
       ></span
     >
@@ -20,34 +20,16 @@ import { Icon } from 'astro-icon';
 </footer>
 
 <style>
+  /* Icon size overrides for astro-icon */
   [astro-icon='grommet-icons:github'] {
-    color: white;
-    width: 36px;
+    color: white !important;
+    width: 43px !important;
+    height: 43px !important;
   }
 
-  footer {
-    background: linear-gradient(to right top, hsl(45, 60%, 48%), hsl(42, 86%, 32%));
-    color: white;
-    border-top: 2px solid white;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    margin: 12px 0;
-  }
-
-  span {
-    color: white;
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin-top: 12px;
-  }
-
-  span a {
-    color: white;
-    text-decoration: none;
+  svg {
+    color: white !important;
+    width: 43px !important;
+    height: 43px !important;
   }
 </style>

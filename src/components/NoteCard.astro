@@ -9,64 +9,17 @@
 const { url, title, description, pubDate, tags } = Astro.props;
 ---
 
-<a href={url}>
-  <article>
+<a href={url} class='no-underline'>
+  <article class='my-6 bg-card-bg p-4 px-6 border-4 border-yellow-500 rounded-sm'>
     <!-- <p><a href={`/notes/${note.slug}`}>{note.data.title}</a></p>
 
   <p>{note.data.description}</p>
   <span>{note.data.pubDate.toDateString()}</span> -->
-    <h2>{title}</h2>
-    <p>{description}...</p>
-    <span class='date'>{pubDate}</span>
-    <div class='tag-container'>
-      {tags.map((tag) => <span>#{tag}</span>)}
+    <h2 class='text-headings text-4xl text-shadow-heading tracking-wide'>{title}</h2>
+    <p class='font-bold text-text-primary'>{description}...</p>
+    <span class='text-lg text-headings font-semibold italic'>{pubDate}</span>
+    <div class='flex gap-4 my-3 flex-wrap text-headings font-black text-xl py-4'>
+      {tags.map((tag) => <span class='leading-none'>#{tag}</span>)}
     </div>
   </article>
 </a>
-<style>
-  article {
-    margin: 24px 0;
-    background: var(--card-background);
-    padding: 18px 22px;
-    border: 4px solid goldenrod;
-    border-radius: 1%;
-  }
-
-  h2 {
-    color: var(--headings);
-    font-size: 2.2rem;
-    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
-    letter-spacing: 0.1rem;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  p {
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .date {
-    font-size: 1.1rem;
-    color: var(--headings);
-    font-weight: 600;
-    font-style: italic;
-  }
-
-  .tag-container {
-    display: flex;
-    gap: 16px;
-    margin: 12px 0;
-    flex-wrap: wrap;
-    color: var(--headings);
-    font-weight: 900;
-    font-size: 1.2rem;
-    padding: 16px 0;
-  }
-
-  .tag-container span {
-    line-height: 0.5;
-  }
-</style>

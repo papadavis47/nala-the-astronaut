@@ -1,28 +1,30 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 ---
 
 <div>
-  <nav>
-    <div class='menu-container'>
-      <a href='/'> <Icon name='mdi:dog-side' /></a>
+  <nav class='sticky top-0 bg-gold-gradient text-white py-2 border-b-2 border-white'>
+    <div class='flex justify-between max-w-container mx-auto px-6 items-center'>
+      <a href='/'>
+        <Icon name='mdi:dog-side' class='w-[67px] h-[67px] text-white' />
+      </a>
       <div class='links-container'>
-        <ul>
+        <ul class='hidden md:flex md:gap-8 md:items-center'>
           {
             Astro.url.pathname !== '/' && (
               <li>
-                <a href='/'>Home</a>
+                <a href='/' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Home</a>
               </li>
             )
           }
-          <li><a href='/about'>About Nala</a></li>
-          <li><a href='/notes'>Notes</a></li>
-          <li><a href='/astro-story'>Astro</a></li>
-          <li><a href='/react'>React</a></li>
-          <li><a href='/solid'>Solid</a></li>
+          <li><a href='/about' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>About Nala</a></li>
+          <li><a href='/notes' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Notes</a></li>
+          <li><a href='/astro-story' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Astro</a></li>
+          <li><a href='/react' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>React</a></li>
+          <li><a href='/solid' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Solid</a></li>
         </ul>
-        <button>
-          <Icon name='radix-icons:hamburger-menu' />
+        <button class='block md:hidden bg-transparent text-white border-none cursor-pointer'>
+          <Icon name='radix-icons:hamburger-menu' class='w-[29px] h-[29px] text-white' />
         </button>
       </div>
     </div>
@@ -30,92 +32,34 @@ import { Icon } from 'astro-icon';
 </div>
 
 <style>
-  /* Icons  */
-
+  /* Icon size overrides for astro-icon */
   [astro-icon='mdi:dog-side'] {
-    color: white;
-    width: 56px;
+    color: white !important;
+    width: 67px !important;
+    height: 67px !important;
   }
 
   [astro-icon='radix-icons:hamburger-menu'] {
-    color: white;
-    width: 24px;
+    color: white !important;
+    width: 29px !important;
+    height: 29px !important;
   }
 
-  /* --- */
-
-  /* Class Selectors */
-
-  .menu-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 24px;
-    align-items: center;
+  svg {
+    color: white !important;
   }
 
-  /* ---- */
-
-  /* Element Selectors */
-
-  li a:hover {
-    background: var(--hover);
-    border-radius: 5%;
+  .links-container > a svg {
+    width: 67px !important;
+    height: 67px !important;
   }
 
-  button {
-    display: block;
-    background: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  nav {
-    /* I always forget these next two lines. But I have them now. */
-    position: sticky;
-    top: 0;
-    background: linear-gradient(to right top, hsl(45, 60%, 48%), hsl(42, 86%, 32%));
-    color: white;
-    padding: 8px 0;
-    border-bottom: 2px solid white;
-  }
-
-  ul {
-    display: none;
+  button svg {
+    width: 29px !important;
+    height: 29px !important;
   }
 
   li {
     list-style-type: none;
   }
-
-  ul a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    font-size: 1.2rem;
-    margin-top: 12px;
-    white-space: nowrap;
-  }
-
-  /* ------- */
-
-  /* Media Queries */
-
-  @media (min-width: 768px) {
-    button {
-      display: none;
-    }
-  }
-
-  @media (min-width: 768px) {
-    ul {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-  }
-
-  /* ------ */
 </style>

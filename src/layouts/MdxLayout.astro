@@ -7,16 +7,18 @@ const { title } = Astro.props;
 
 <MainLayout title={title}>
   <Container>
-    <slot />
+    <div class='mdx-content'>
+      <slot />
+    </div>
   </Container>
 </MainLayout>
 
-<style>
-  h1 {
-    font-size: 3rem;
+<style is:global>
+  .mdx-content h1 {
+    @apply text-5xl;
   }
 
-  p {
-    font-weight: 600;
+  .mdx-content p {
+    @apply font-semibold;
   }
 </style>

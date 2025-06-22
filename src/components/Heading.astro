@@ -7,29 +7,7 @@ interface Props {
 const { heading, subheading } = Astro.props;
 ---
 
-<div class='title'>
-  <h1>{heading}</h1>
-  <h2>{subheading}</h2>
+<div class='mt-6 py-5 leading-none'>
+  <h1 class='text-8xl text-shadow-heading'>{heading}</h1>
+  <h2 class='text-4xl font-bold text-shadow-heading'>{subheading}</h2>
 </div>
-
-<style>
-  .title {
-    margin-top: 22px;
-    padding: 20px 0;
-    line-height: 1;
-  }
-
-  h1 {
-    font-size: 5rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
-
-  h1,
-  h2 {
-    text-shadow: 2px 2px 2px hsl(209, 23%, 23%);
-  }
-</style>

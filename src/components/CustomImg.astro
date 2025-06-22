@@ -1,28 +1,19 @@
 ---
 const { filename, alt, sizes, widths, loading, aspectRatio } = Astro.props;
 
-import { Picture } from '@astrojs/image/components';
+import { Picture } from 'astro:assets';
 
-const { width, height } = (await import(`../images/${filename}.jpg`)).default;
+const image = await import(`../images/${filename}.jpg`);
 ---
 
-<figure>
+<figure class='py-6'>
   <Picture
-    src={import(`../images/${filename}.jpg`)}
+    src={image.default}
     loading={loading ? loading : 'lazy'}
-    width={width}
-    height={height}
     widths={widths}
     sizes={sizes}
     alt={alt}
     aspectRatio={aspectRatio}
+    class='h-auto rounded-sm border-2 border-white'
   />
 </figure>
-
-<style>
-  img {
-    height: auto;
-    border-radius: 1%;
-    border: 2px solid white;
-  }
-</style>
