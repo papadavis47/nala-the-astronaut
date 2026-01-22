@@ -3,11 +3,13 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import solidJs from '@astrojs/solid-js';
 import icon from 'astro-icon';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
-    tailwind(),
     mdx(),
     react({
       include: ['**/react/**/*'],

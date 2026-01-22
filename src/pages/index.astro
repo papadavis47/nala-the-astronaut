@@ -1,48 +1,111 @@
 ---
-import CustomImg from '@components/CustomImg.astro';
 import MainLayout from '@layouts/MainLayout.astro';
-import Heading from '@components/Heading.astro';
+import Hero from '@components/Hero.astro';
 import Container from '@components/Container.astro';
-import nalita from '@images/nalita.jpg';
-import nalaPic from '@images/nala-playing.jpg';
-import sleepingNala from '@images/nala-sleeping.jpg';
+import CustomImg from '@components/CustomImg.astro';
 ---
 
-<MainLayout title='Nala the Astronaut - Home'>
+<MainLayout title="Nala the Astronaut - Home">
+  <Hero />
+  
   <Container>
-    <Heading heading='Nala' subheading='The Astronaut' />
-    <section class='mt-6 pt-3'>
-      <h3 class='text-shadow-heading text-3xl'>Our First Dog</h3>
-      <p>
-        The Davis Family never had a dog before Nala. We knew nothing about raising a dog prior to
-        her arrival at our home.
+    <section class="py-8 md:py-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-headings text-center mb-4 text-shadow-heading">
+        The Origin Story
+      </h2>
+      <p class="text-center max-w-2xl mx-auto text-lg md:text-xl text-text-primary">
+        Before Nala touched down at Davis Family Headquarters, we had never trained a cadet. 
+        We knew nothing about the rigorous schedule of walks, the advanced treat negotiations, 
+        or the complex belly-rub protocols.
       </p>
-      <p>
-        This site is about our love for her and the work and learning that goes into caring for
-        Nala.
-      </p>
-      <p>This is little space on the web is a <strong>celebration of our Nala!</strong></p>
     </section>
-    <CustomImg
-      filename='nalita'
-      alt='Golden Retriever portrait'
-      widths={[200, 300, 600, 900]}
-      sizes='(max-width: 900px) 100vw 900px'
-      aspectRatio='1:1'
-    />
-    <CustomImg
-      filename='nala-playing'
-      alt='Golden Retriever playing on a lawn'
-      widths={[200, 300, 600, 900]}
-      sizes='(max-width: 900px) 100vw 900px'
-      aspectRatio='1:1'
-    />
-    <CustomImg
-      filename='nala-sleeping'
-      widths={[200, 300, 600, 900]}
-      sizes='(max-width: 900px)100vw 900px'
-      alt='Golder Retriever sleeping on carpet'
-      aspectRatio='1:1'
-    />
+
+    <section class="py-8 md:py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1">
+          <h3 class="text-2xl md:text-3xl font-bold text-headings mb-4 text-shadow-heading">
+            🌟 Mission: Unconditional Love
+          </h3>
+          <p>
+            Nala arrived at our home as a furry bundle of chaos and cuddles. 
+            She quickly established herself as Chief Happiness Officer, 
+            with expertise in tail-wagging, face-licking, and strategic napping.
+          </p>
+          <p>
+            Her daily missions include patrolling the backyard for squirrel activity, 
+            conducting thorough sniff-investigations of all visitors, 
+            and ensuring no crumb is left behind.
+          </p>
+        </div>
+        <div class="order-1 md:order-2">
+          <figure class="relative">
+            <CustomImg
+              filename="nala-playing"
+              alt="Nala playing happily on the lawn - full of energy and joy"
+              class="shadow-xl border-2 border-white"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <figcaption class="text-center mt-2 text-text-primary font-medium">
+              Field training in progress 🎾
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <figure class="relative">
+            <CustomImg
+              filename="nala-sleeping"
+              alt="Nala sleeping peacefully on the carpet"
+              class="shadow-xl border-2 border-white"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <figcaption class="text-center mt-2 text-text-primary font-medium">
+              Recharging for the next adventure 💤
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3 class="text-2xl md:text-3xl font-bold text-headings mb-4 text-shadow-heading">
+            🚀 Rest & Recovery Protocol
+          </h3>
+          <p>
+            Even the bravest space explorers need downtime. 
+            After a hard day of zooming around the yard and protecting the family 
+            from suspicious delivery trucks, Nala enters her recovery phase.
+          </p>
+          <p>
+            She has mastered the art of finding the comfiest spot in any room, 
+            often claiming couches, beds, and the occasional sunbeam 
+            as her personal rest stations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-16 text-center">
+      <div class="bg-card-bg rounded-2xl p-8 md:p-12 shadow-lg border-2 border-white/50">
+        <h2 class="text-3xl md:text-4xl font-bold text-headings mb-4 text-shadow-heading">
+          🐕 A Celebration of Nala
+        </h2>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6">
+          This little corner of the internet is dedicated to our furry astronaut. 
+          She's taught us about patience, unconditional love, and the importance of 
+          getting excited about the little things—like walks, treats, and belly rubs.
+        </p>
+        <a 
+          href="/gallery" 
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-gradient text-white font-bold text-lg rounded-full hover:scale-105 transition-transform shadow-lg"
+        >
+          Explore the Photo Archives
+          <span>📸</span>
+        </a>
+      </div>
+    </section>
   </Container>
 </MainLayout>

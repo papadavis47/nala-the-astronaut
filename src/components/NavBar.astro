@@ -1,67 +1,161 @@
 ---
-interface Props {}
-
 import { Icon } from 'astro-icon/components';
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Nala' },
+  { href: '/gallery', label: 'Gallery' },
+];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<div>
-  <nav class='sticky top-0 bg-gold-gradient text-white py-2 border-b-2 border-white'>
-    <div class='flex justify-between max-w-container mx-auto px-6 items-center'>
-      <a href='/'>
-        <Icon name='mdi:dog-side' class='w-[67px] h-[67px] text-white' />
+<header>
+  <nav class="sticky top-0 z-50 bg-gold-gradient text-white py-3 border-b-2 border-white shadow-md">
+    <div class="flex justify-between max-w-container mx-auto px-6 items-center">
+      <a href="/" class="flex items-center gap-2 group">
+        <Icon name="mdi:dog-side" class="w-12 h-12 text-white transition-transform group-hover:scale-110" />
+        <span class="hidden sm:block font-roboto font-bold text-lg">Nala the Astronaut</span>
       </a>
-      <div class='links-container'>
-        <ul class='hidden md:flex md:gap-8 md:items-center'>
-          {
-            Astro.url.pathname !== '/' && (
-              <li>
-                <a href='/' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Home</a>
-              </li>
-            )
-          }
-          <li><a href='/about' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>About Nala</a></li>
-          <li><a href='/notes' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Notes</a></li>
-          <li><a href='/astro-story' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Astro</a></li>
-          <li><a href='/react' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>React</a></li>
-          <li><a href='/solid' class='block text-inherit no-underline text-xl mt-3 whitespace-nowrap hover:bg-hover-gold hover:rounded-sm'>Solid</a></li>
-        </ul>
-        <button class='block md:hidden bg-transparent text-white border-none cursor-pointer'>
-          <Icon name='radix-icons:hamburger-menu' class='w-[29px] h-[29px] text-white' />
-        </button>
-      </div>
+      
+      <ul class="hidden md:flex md:gap-6 md:items-center">
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a 
+              href={href} 
+              class:list={[
+                "block px-3 py-2 text-lg font-medium rounded-md transition-all duration-200",
+                "hover:bg-white/20 hover:scale-105",
+                currentPath === href && "bg-white/25 underline underline-offset-4"
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      
+      <button 
+        id="menu-toggle"
+        class="md:hidden p-2 rounded-md hover:bg-white/20 transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <Icon name="radix-icons:hamburger-menu" class="w-7 h-7 text-white" id="menu-icon-open" />
+        <Icon name="mdi:close" class="w-7 h-7 text-white hidden" id="menu-icon-close" />
+      </button>
     </div>
   </nav>
-</div>
+
+  <!-- Mobile menu overlay -->
+  <div 
+    id="menu-overlay" 
+    class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-opacity duration-300 md:hidden"
+  ></div>
+
+  <!-- Mobile slide-out menu -->
+  <aside 
+    id="mobile-menu"
+    class="fixed top-0 left-0 h-full w-72 bg-gold-gradient z-50 transform -translate-x-full transition-transform duration-300 ease-out md:hidden shadow-2xl"
+  >
+    <div class="flex flex-col h-full">
+      <div class="flex items-center justify-between p-4 border-b-2 border-white/30">
+        <div class="flex items-center gap-2">
+          <Icon name="mdi:dog-side" class="w-10 h-10 text-white" />
+          <span class="font-roboto font-bold text-lg text-white">Nala</span>
+        </div>
+        <button 
+          id="menu-close"
+          class="p-2 rounded-md hover:bg-white/20 transition-colors"
+          aria-label="Close menu"
+        >
+          <Icon name="mdi:close" class="w-6 h-6 text-white" />
+        </button>
+      </div>
+      
+      <nav class="flex-1 py-6">
+        <ul class="space-y-2 px-4">
+          {navLinks.map(({ href, label }, index) => (
+            <li 
+              class="mobile-menu-item opacity-0 transform -translate-x-4"
+              style={`transition-delay: ${index * 75}ms`}
+            >
+              <a 
+                href={href} 
+                class:list={[
+                  "flex items-center gap-3 px-4 py-3 text-xl font-medium text-white rounded-lg transition-all duration-200",
+                  "hover:bg-white/20 hover:translate-x-2",
+                  currentPath === href && "bg-white/25"
+                ]}
+              >
+                <Icon 
+                  name={href === '/' ? 'mdi:home' : href === '/about' ? 'mdi:paw' : 'mdi:image-multiple'} 
+                  class="w-6 h-6" 
+                />
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      
+      <div class="p-4 border-t-2 border-white/30">
+        <p class="text-white/80 text-sm text-center">🚀 To infinity and beyond!</p>
+      </div>
+    </div>
+  </aside>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+  const menuItems = document.querySelectorAll('.mobile-menu-item');
+
+  function openMenu() {
+    mobileMenu?.classList.remove('-translate-x-full');
+    menuOverlay?.classList.remove('opacity-0', 'invisible');
+    menuOverlay?.classList.add('opacity-100', 'visible');
+    menuIconOpen?.classList.add('hidden');
+    menuIconClose?.classList.remove('hidden');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    
+    menuItems.forEach((item) => {
+      item.classList.remove('opacity-0', '-translate-x-4');
+      item.classList.add('opacity-100', 'translate-x-0');
+    });
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.add('-translate-x-full');
+    menuOverlay?.classList.add('opacity-0', 'invisible');
+    menuOverlay?.classList.remove('opacity-100', 'visible');
+    menuIconOpen?.classList.remove('hidden');
+    menuIconClose?.classList.add('hidden');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    
+    menuItems.forEach((item) => {
+      item.classList.add('opacity-0', '-translate-x-4');
+      item.classList.remove('opacity-100', 'translate-x-0');
+    });
+  }
+
+  menuToggle?.addEventListener('click', openMenu);
+  menuClose?.addEventListener('click', closeMenu);
+  menuOverlay?.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
 
 <style>
-  /* Icon size overrides for astro-icon */
-  [astro-icon='mdi:dog-side'] {
-    color: white !important;
-    width: 67px !important;
-    height: 67px !important;
-  }
-
-  [astro-icon='radix-icons:hamburger-menu'] {
-    color: white !important;
-    width: 29px !important;
-    height: 29px !important;
-  }
-
-  svg {
-    color: white !important;
-  }
-
-  .links-container > a svg {
-    width: 67px !important;
-    height: 67px !important;
-  }
-
-  button svg {
-    width: 29px !important;
-    height: 29px !important;
-  }
-
-  li {
-    list-style-type: none;
+  .mobile-menu-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 </style>

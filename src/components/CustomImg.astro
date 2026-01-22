@@ -1,28 +1,35 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   filename: string;
   alt: string;
-  sizes?: string;
-  widths?: number[];
+  class?: string;
   loading?: 'lazy' | 'eager';
-  aspectRatio?: string;
+  widths?: number[];
+  sizes?: string;
 }
 
-const { filename, alt, sizes, widths, loading, aspectRatio } = Astro.props;
+const { filename, alt, class: className, loading = 'lazy', widths, sizes } = Astro.props;
 
-import { Picture } from 'astro:assets';
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '../images/*.webp',
+  { eager: true }
+);
 
-const image = await import(`../images/${filename}.jpg`);
+const imagePath = `../images/${filename}.webp`;
+const image = images[imagePath]?.default;
+
+if (!image) {
+  throw new Error(`Image not found: ${filename}.webp`);
+}
 ---
 
-<figure class='py-6'>
-  <Picture
-    src={image.default}
-    loading={loading ? loading : 'lazy'}
-    widths={widths}
-    sizes={sizes}
-    alt={alt}
-    aspectRatio={aspectRatio}
-    class='h-auto rounded-sm border-2 border-white'
-  />
-</figure>
+<Image
+  src={image}
+  alt={alt}
+  loading={loading}
+  widths={widths}
+  sizes={sizes}
+  class:list={["rounded-lg", className]}
+/>

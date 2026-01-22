@@ -1,37 +1,49 @@
 ---
-interface Props {}
-
 import { Icon } from 'astro-icon/components';
+
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class='bg-gold-gradient text-white border-t-2 border-white'>
-  <div class='flex flex-col items-center text-white my-3'>
-    <a
-      href='https://github.com/papadavis47/nala-the-astronaut'
-      target='_blank'
-      rel='noopener noreferrer'
-    >
-      <Icon name='grommet-icons:github' class='w-[43px] h-[43px] text-white' />
-    </a>
-    <span class='text-white text-xl font-medium mt-3'
-      >Made with &hearts; & <a target='_blank' rel='noopener noreferrer' href='https://astro.build' class='text-white no-underline'
-        >Astro</a
-      ></span
-    >
+<footer class="bg-gold-gradient text-white border-t-2 border-white">
+  <div class="max-w-container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-6">
+      <!-- Brand -->
+      <div class="flex items-center gap-3">
+        <Icon name="mdi:dog-side" class="w-10 h-10 text-white" />
+        <div>
+          <span class="font-roboto font-bold text-lg block">Nala the Astronaut</span>
+          <span class="text-white/80 text-sm">Exploring the universe, one treat at a time</span>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <nav class="flex gap-6">
+        <a href="/" class="text-white hover:text-white/80 transition-colors">Home</a>
+        <a href="/about" class="text-white hover:text-white/80 transition-colors">About</a>
+        <a href="/gallery" class="text-white hover:text-white/80 transition-colors">Gallery</a>
+      </nav>
+      
+      <!-- Social & Credits -->
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <a
+          href="https://github.com/papadavis47/nala-the-astronaut"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-2 rounded-full hover:bg-white/20 transition-colors"
+          aria-label="View on GitHub"
+        >
+          <Icon name="grommet-icons:github" class="w-8 h-8 text-white" />
+        </a>
+      </div>
+    </div>
+    
+    <div class="mt-8 pt-6 border-t border-white/30 text-center">
+      <p class="text-white/80 text-sm">
+        Made with &hearts; by the Davis Family &bull; {currentYear}
+      </p>
+      <p class="text-white/60 text-xs mt-1">
+        Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">Astro</a> 🚀
+      </p>
+    </div>
   </div>
 </footer>
-
-<style>
-  /* Icon size overrides for astro-icon */
-  [astro-icon='grommet-icons:github'] {
-    color: white !important;
-    width: 43px !important;
-    height: 43px !important;
-  }
-
-  svg {
-    color: white !important;
-    width: 43px !important;
-    height: 43px !important;
-  }
-</style>

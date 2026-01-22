@@ -1,11 +1,148 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import Heading from '@components/Heading.astro';
 import Container from '@components/Container.astro';
+import CustomImg from '@components/CustomImg.astro';
 ---
 
-<MainLayout title='About Nala'>
+<MainLayout title="About Nala - Nala the Astronaut">
+  <div class="bg-gradient-to-b from-[hsl(220,40%,15%)] to-[hsl(220,30%,25%)] py-12 md:py-16">
+    <Container>
+      <div class="text-center mb-8">
+        <p class="text-amber-400 font-medium text-lg tracking-wide uppercase mb-2">
+          Crew Profile
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          About Nala
+        </h1>
+        <p class="text-white/80 text-lg max-w-2xl mx-auto">
+          Get to know the golden-furred astronaut who captured our hearts 
+          and forever changed our family.
+        </p>
+      </div>
+    </Container>
+  </div>
+  
   <Container>
-    <Heading heading='About' subheading='The Nala Story' />
+    <section class="py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+        <figure>
+          <CustomImg
+            filename="nalita"
+            alt="Nala portrait - our beautiful Golden Retriever"
+            class="shadow-xl border-2 border-white"
+            widths={[400, 600, 800]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </figure>
+        <div>
+          <h2 class="text-3xl font-bold text-headings mb-4 text-shadow-heading">
+            🌟 Meet Commander Nala
+          </h2>
+          <dl class="space-y-3 text-lg">
+            <div class="flex gap-3">
+              <dt class="font-bold text-headings min-w-[120px]">Breed:</dt>
+              <dd class="text-text-primary">Golden Retriever</dd>
+            </div>
+            <div class="flex gap-3">
+              <dt class="font-bold text-headings min-w-[120px]">Rank:</dt>
+              <dd class="text-text-primary">Chief Happiness Officer</dd>
+            </div>
+            <div class="flex gap-3">
+              <dt class="font-bold text-headings min-w-[120px]">Mission:</dt>
+              <dd class="text-text-primary">Spreading joy & stealing hearts</dd>
+            </div>
+            <div class="flex gap-3">
+              <dt class="font-bold text-headings min-w-[120px]">Specialties:</dt>
+              <dd class="text-text-primary">Fetch, cuddles, & treat detection</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-headings text-center mb-8 text-shadow-heading">
+        🚀 The Origin Story
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <p>
+          The Davis Family never had a dog before Nala. We were complete novices—
+          unsure of what we were getting into, but excited for the adventure ahead.
+        </p>
+        <p>
+          When Nala first arrived, she was a tiny bundle of golden fluff with paws 
+          too big for her body and eyes full of curiosity. She sniffed every corner 
+          of our home, immediately claiming the comfiest spots as her own.
+        </p>
+        <p>
+          Learning to care for her was a journey. We read books, watched videos, 
+          and made plenty of mistakes along the way. But through every chewed shoe, 
+          every 3 AM potty break, and every muddy paw print on the floor, 
+          our love for her only grew stronger.
+        </p>
+        <p>
+          She taught us patience, responsibility, and the pure joy of unconditional love. 
+          Every tail wag when we come home, every excited spin at the mention of "walk," 
+          every gentle nuzzle when we're feeling down—these are the moments that make it all worth it.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12">
+      <h2 class="text-3xl font-bold text-headings text-center mb-8 text-shadow-heading">
+        🎖️ Notable Achievements
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-card-bg rounded-xl p-6 shadow-lg border-2 border-white/50 text-center">
+          <span class="text-4xl block mb-3">🎾</span>
+          <h3 class="font-bold text-xl text-headings mb-2">Fetch Champion</h3>
+          <p class="text-text-primary">Can retrieve a ball from any distance (or choose to ignore it entirely)</p>
+        </div>
+        <div class="bg-card-bg rounded-xl p-6 shadow-lg border-2 border-white/50 text-center">
+          <span class="text-4xl block mb-3">🛋️</span>
+          <h3 class="font-bold text-xl text-headings mb-2">Couch Expert</h3>
+          <p class="text-text-primary">Has claimed every comfortable surface in the house</p>
+        </div>
+        <div class="bg-card-bg rounded-xl p-6 shadow-lg border-2 border-white/50 text-center">
+          <span class="text-4xl block mb-3">🍖</span>
+          <h3 class="font-bold text-xl text-headings mb-2">Treat Negotiator</h3>
+          <p class="text-text-primary">Masters the puppy eyes for maximum treat acquisition</p>
+        </div>
+        <div class="bg-card-bg rounded-xl p-6 shadow-lg border-2 border-white/50 text-center">
+          <span class="text-4xl block mb-3">👃</span>
+          <h3 class="font-bold text-xl text-headings mb-2">Sniff Inspector</h3>
+          <p class="text-text-primary">No visitor enters without a thorough smell investigation</p>
+        </div>
+        <div class="bg-card-bg rounded-xl p-6 shadow-lg border-2 border-white/50 text-center">
+          <span class="text-4xl block mb-3">🐿️</span>
+          <h3 class="font-bold text-xl text-headings mb-2">Squirrel Patrol</h3>
+          <p class="text-text-primary">Keeps the yard safe from all suspicious wildlife</p>
+        </div>
+        <div class="bg-card-bg rounded-xl p-6 shadow-lg border-2 border-white/50 text-center">
+          <span class="text-4xl block mb-3">💛</span>
+          <h3 class="font-bold text-xl text-headings mb-2">Heart Thief</h3>
+          <p class="text-text-primary">Has stolen every heart in the household (and beyond)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-16 text-center">
+      <div class="bg-card-bg rounded-2xl p-8 md:p-12 shadow-lg border-2 border-white/50">
+        <h2 class="text-3xl font-bold text-headings mb-4 text-shadow-heading">
+          📸 See Nala in Action
+        </h2>
+        <p class="text-lg max-w-xl mx-auto mb-6">
+          Ready to see more of our golden explorer? 
+          Check out the mission archives!
+        </p>
+        <a 
+          href="/gallery" 
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-gradient text-white font-bold text-lg rounded-full hover:scale-105 transition-transform shadow-lg"
+        >
+          Visit the Gallery
+          <span>🚀</span>
+        </a>
+      </div>
+    </section>
   </Container>
 </MainLayout>

@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../images/nala-portrait.webp';
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-[hsl(220,40%,15%)] to-[hsl(220,30%,25%)]">
+  <!-- Stars background -->
+  <div class="absolute inset-0 stars-bg opacity-60"></div>
+  
+  <div class="max-w-container mx-auto px-6 py-12 md:py-20 relative z-10">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <!-- Hero Image -->
+      <div class="relative flex-shrink-0">
+        <div class="absolute inset-0 bg-gold-gradient rounded-full blur-2xl opacity-30 scale-110"></div>
+        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
+          <Image
+            src={heroImage}
+            alt="Nala the Golden Retriever - Our beloved space explorer"
+            class="w-full h-full object-cover"
+            loading="eager"
+            widths={[320, 640]}
+            sizes="(max-width: 768px) 256px, 320px"
+          />
+        </div>
+        <!-- Floating stars decoration -->
+        <span class="absolute -top-2 -right-2 text-3xl animate-pulse">✨</span>
+        <span class="absolute -bottom-1 -left-3 text-2xl animate-pulse delay-300">⭐</span>
+        <span class="absolute top-1/2 -right-6 text-xl animate-pulse delay-700">🌟</span>
+      </div>
+      
+      <!-- Hero Content -->
+      <div class="text-center md:text-left">
+        <p class="text-amber-400 font-medium text-lg md:text-xl mb-2 tracking-wide uppercase">
+          Mission Control Presents
+        </p>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
+          Nala<br />
+          <span class="text-transparent bg-clip-text bg-gold-gradient">The Astronaut</span>
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl max-w-lg mb-6">
+          One small step for dog, one giant leap for treat-kind. 
+          Join our golden explorer on her mission to spread joy across the galaxy! 🚀
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a 
+            href="/about" 
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-gradient text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-lg"
+          >
+            Meet the Crew
+            <span>🐕</span>
+          </a>
+          <a 
+            href="/gallery" 
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-colors border border-white/30"
+          >
+            View Mission Logs
+            <span>📸</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Wave divider -->
+  <div class="absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 md:h-16">
+      <path 
+        d="M0,60 C300,100 600,20 900,60 C1050,80 1150,60 1200,60 L1200,120 L0,120 Z" 
+        fill="hsl(36, 43%, 85%)"
+      ></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .stars-bg {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, white, transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1px 1px at 90px 40px, white, transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 160px 20px, white, transparent),
+      radial-gradient(2px 2px at 200px 60px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 250px 90px, white, transparent),
+      radial-gradient(2px 2px at 300px 30px, rgba(255,255,255,0.5), transparent);
+    background-size: 320px 100px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+  
+  @keyframes twinkle {
+    0% { opacity: 0.4; }
+    100% { opacity: 0.7; }
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+</style>
