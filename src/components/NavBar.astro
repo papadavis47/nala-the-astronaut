@@ -12,7 +12,7 @@ const currentPath = Astro.url.pathname;
 
 <header>
   <nav class="sticky top-0 z-50 bg-gold-gradient text-white py-3 border-b-2 border-white shadow-md">
-    <div class="flex justify-between max-w-container mx-auto px-6 items-center">
+    <div class="flex justify-between max-w-5xl mx-auto px-6 lg:px-8 items-center">
       <a href="/" class="flex items-center gap-2 group">
         <Icon name="mdi:dog-side" class="w-12 h-12 text-white transition-transform group-hover:scale-110" />
         <span class="hidden sm:block font-roboto font-bold text-lg">Nala the Astronaut</span>
@@ -42,7 +42,6 @@ const currentPath = Astro.url.pathname;
         aria-expanded="false"
       >
         <Icon name="radix-icons:hamburger-menu" class="w-7 h-7 text-white" id="menu-icon-open" />
-        <Icon name="mdi:close" class="w-7 h-7 text-white hidden" id="menu-icon-close" />
       </button>
     </div>
   </nav>

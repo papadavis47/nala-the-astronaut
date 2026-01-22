@@ -1,19 +1,20 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import Hero from '@components/Hero.astro';
-import Container from '@components/Container.astro';
-import CustomImg from '@components/CustomImg.astro';
+import { Image } from 'astro:assets';
+import nalaPlaying from '../images/nala-playing.webp';
+import nalaSleeping from '../images/nala-sleeping.webp';
 ---
 
 <MainLayout title="Nala the Astronaut - Home">
   <Hero />
   
-  <Container>
+  <div class="w-full max-w-5xl mx-auto px-6 lg:px-8 py-4">
     <section class="py-8 md:py-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-headings text-center mb-4 text-shadow-heading">
+      <h2 class="text-3xl md:text-4xl font-bold text-headings text-center mb-4 ">
         The Origin Story
       </h2>
-      <p class="text-center max-w-2xl mx-auto text-lg md:text-xl text-text-primary">
+      <p class="text-center max-w-3xl mx-auto text-lg md:text-xl text-text-primary">
         Before Nala touched down at Davis Family Headquarters, we had never trained a cadet. 
         We knew nothing about the rigorous schedule of walks, the advanced treat negotiations, 
         or the complex belly-rub protocols.
@@ -23,7 +24,7 @@ import CustomImg from '@components/CustomImg.astro';
     <section class="py-8 md:py-12">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1">
-          <h3 class="text-2xl md:text-3xl font-bold text-headings mb-4 text-shadow-heading">
+          <h3 class="text-2xl md:text-3xl font-bold text-headings mb-4 ">
             🌟 Mission: Unconditional Love
           </h3>
           <p>
@@ -39,10 +40,10 @@ import CustomImg from '@components/CustomImg.astro';
         </div>
         <div class="order-1 md:order-2">
           <figure class="relative">
-            <CustomImg
-              filename="nala-playing"
+            <Image
+              src={nalaPlaying}
               alt="Nala playing happily on the lawn - full of energy and joy"
-              class="shadow-xl border-2 border-white"
+              class="rounded-lg shadow-xl border-2 border-white"
               widths={[400, 600, 800]}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
@@ -58,10 +59,10 @@ import CustomImg from '@components/CustomImg.astro';
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <figure class="relative">
-            <CustomImg
-              filename="nala-sleeping"
+            <Image
+              src={nalaSleeping}
               alt="Nala sleeping peacefully on the carpet"
-              class="shadow-xl border-2 border-white"
+              class="rounded-lg shadow-xl border-2 border-white"
               widths={[400, 600, 800]}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
@@ -71,7 +72,7 @@ import CustomImg from '@components/CustomImg.astro';
           </figure>
         </div>
         <div>
-          <h3 class="text-2xl md:text-3xl font-bold text-headings mb-4 text-shadow-heading">
+          <h3 class="text-2xl md:text-3xl font-bold text-headings mb-4 ">
             🚀 Rest & Recovery Protocol
           </h3>
           <p>
@@ -90,10 +91,10 @@ import CustomImg from '@components/CustomImg.astro';
 
     <section class="py-8 md:py-16 text-center">
       <div class="bg-card-bg rounded-2xl p-8 md:p-12 shadow-lg border-2 border-white/50">
-        <h2 class="text-3xl md:text-4xl font-bold text-headings mb-4 text-shadow-heading">
+        <h2 class="text-3xl md:text-4xl font-bold text-headings mb-4 ">
           🐕 A Celebration of Nala
         </h2>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6">
+        <p class="text-lg md:text-xl max-w-3xl mx-auto mb-6">
           This little corner of the internet is dedicated to our furry astronaut. 
           She's taught us about patience, unconditional love, and the importance of 
           getting excited about the little things—like walks, treats, and belly rubs.
@@ -107,5 +108,5 @@ import CustomImg from '@components/CustomImg.astro';
         </a>
       </div>
     </section>
-  </Container>
+  </div>
 </MainLayout>

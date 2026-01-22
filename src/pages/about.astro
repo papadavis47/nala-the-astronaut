@@ -1,41 +1,41 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import Container from '@components/Container.astro';
-import CustomImg from '@components/CustomImg.astro';
+import { Image } from 'astro:assets';
+import nalita from '../images/nalita.webp';
 ---
 
 <MainLayout title="About Nala - Nala the Astronaut">
   <div class="bg-gradient-to-b from-[hsl(220,40%,15%)] to-[hsl(220,30%,25%)] py-12 md:py-16">
-    <Container>
+    <div class="w-full max-w-5xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-8">
-        <p class="text-amber-400 font-medium text-lg tracking-wide uppercase mb-2">
+        <p class="!text-yellow-300 font-medium text-lg tracking-wide uppercase mb-2">
           Crew Profile
         </p>
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 class="text-4xl md:text-5xl font-bold !text-yellow-300 mb-4">
           About Nala
         </h1>
-        <p class="text-white/80 text-lg max-w-2xl mx-auto">
+        <p class="!text-yellow-300 text-lg max-w-2xl mx-auto">
           Get to know the golden-furred astronaut who captured our hearts 
           and forever changed our family.
         </p>
       </div>
-    </Container>
+    </div>
   </div>
   
-  <Container>
+  <div class="w-full max-w-5xl mx-auto px-6 lg:px-8 py-4">
     <section class="py-12">
       <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
         <figure>
-          <CustomImg
-            filename="nalita"
+          <Image
+            src={nalita}
             alt="Nala portrait - our beautiful Golden Retriever"
-            class="shadow-xl border-2 border-white"
+            class="rounded-lg shadow-xl border-2 border-white"
             widths={[400, 600, 800]}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </figure>
         <div>
-          <h2 class="text-3xl font-bold text-headings mb-4 text-shadow-heading">
+          <h2 class="text-3xl font-bold text-headings mb-4 ">
             🌟 Meet Commander Nala
           </h2>
           <dl class="space-y-3 text-lg">
@@ -61,10 +61,10 @@ import CustomImg from '@components/CustomImg.astro';
     </section>
 
     <section class="py-8 md:py-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-headings text-center mb-8 text-shadow-heading">
+      <h2 class="text-3xl md:text-4xl font-bold text-headings text-center mb-8 ">
         🚀 The Origin Story
       </h2>
-      <div class="max-w-3xl mx-auto space-y-6">
+      <div class="max-w-3xl mx-auto space-y-6 text-left">
         <p>
           The Davis Family never had a dog before Nala. We were complete novices—
           unsure of what we were getting into, but excited for the adventure ahead.
@@ -89,7 +89,7 @@ import CustomImg from '@components/CustomImg.astro';
     </section>
 
     <section class="py-8 md:py-12">
-      <h2 class="text-3xl font-bold text-headings text-center mb-8 text-shadow-heading">
+      <h2 class="text-3xl font-bold text-headings text-center mb-8 ">
         🎖️ Notable Achievements
       </h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -128,10 +128,10 @@ import CustomImg from '@components/CustomImg.astro';
 
     <section class="py-8 md:py-16 text-center">
       <div class="bg-card-bg rounded-2xl p-8 md:p-12 shadow-lg border-2 border-white/50">
-        <h2 class="text-3xl font-bold text-headings mb-4 text-shadow-heading">
+        <h2 class="text-3xl font-bold text-headings mb-4 ">
           📸 See Nala in Action
         </h2>
-        <p class="text-lg max-w-xl mx-auto mb-6">
+        <p class="text-lg max-w-3xl mx-auto mb-6">
           Ready to see more of our golden explorer? 
           Check out the mission archives!
         </p>
@@ -144,5 +144,5 @@ import CustomImg from '@components/CustomImg.astro';
         </a>
       </div>
     </section>
-  </Container>
+  </div>
 </MainLayout>

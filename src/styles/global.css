@@ -4,7 +4,7 @@
   --color-main-bg: hsl(36, 43%, 85%);
   --color-card-bg: hsl(36, 43%, 90%);
   --color-text-primary: hsl(0, 0%, 29%);
-  --color-headings: hsla(0, 16%, 29%, 1);
+  --color-headings: hsl(25, 35%, 25%);
   --color-hover-gold: hsl(45, 60%, 48%, 0.2);
   --color-gold-start: hsl(45, 60%, 48%);
   --color-gold-end: hsl(42, 86%, 32%);
@@ -13,7 +13,7 @@
   --font-roboto: "Roboto", sans-serif;
   --font-open-sans: "Open Sans", sans-serif;
 
-  --max-width-container: 900px;
+  --max-width-container: 1200px;
 }
 
 @utility text-shadow-heading {
