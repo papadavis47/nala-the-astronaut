@@ -20,10 +20,10 @@ const { title } = Astro.props;
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class='font-roboto min-h-screen'>
-    <div class='min-h-screen flex flex-col'>
+  <body class='font-roboto min-h-screen w-full'>
+    <div class='min-h-screen w-full flex flex-col'>
       <NavBar />
-      <main class='flex-1 bg-main-bg'>
+      <main class='flex-1 w-full bg-main-bg flex flex-col items-center'>
         <slot />
       </main>
       <Footer />

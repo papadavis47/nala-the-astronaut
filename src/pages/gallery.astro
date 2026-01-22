@@ -28,8 +28,8 @@ const galleryImages = Object.entries(images).map(([path, module]) => {
 ---
 
 <MainLayout title="Nala the Astronaut - Gallery">
-  <div class="bg-gradient-to-b from-[hsl(220,40%,15%)] to-[hsl(220,30%,25%)] py-12 md:py-16">
-    <div class="w-full max-w-5xl mx-auto px-6 lg:px-8">
+  <div class="w-full bg-gradient-to-b from-[hsl(220,40%,15%)] to-[hsl(220,30%,25%)] py-12 md:py-16 flex justify-center">
+    <div class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8">
       <div class="text-center mb-8">
         <p class="!text-yellow-300 font-medium text-lg tracking-wide uppercase mb-2">
           Mission Archives
@@ -37,7 +37,7 @@ const galleryImages = Object.entries(images).map(([path, module]) => {
         <h1 class="text-4xl md:text-5xl font-bold !text-yellow-300 mb-4">
           Photo Gallery
         </h1>
-        <p class="!text-yellow-300 text-lg max-w-2xl mx-auto">
+        <p class="!text-yellow-300 text-lg max-w-2xl ">
           Documented evidence of the cutest space explorer in the galaxy. 
           Each photo captures a moment of joy, adventure, or strategic napping.
         </p>
@@ -45,7 +45,7 @@ const galleryImages = Object.entries(images).map(([path, module]) => {
     </div>
   </div>
   
-  <div class="w-full max-w-5xl mx-auto px-6 lg:px-8 py-4">
+  <div class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-4">
     <section class="py-12">
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {galleryImages.map((image) => (
@@ -72,7 +72,7 @@ const galleryImages = Object.entries(images).map(([path, module]) => {
         <h2 class="text-2xl md:text-3xl font-bold text-headings mb-4 ">
           Want to See More?
         </h2>
-        <p class="text-lg max-w-xl mx-auto mb-6">
+        <p class="text-lg max-w-xl  mb-6">
           We're always adding new photos from Nala's adventures. 
           Check back soon for more mission updates!
         </p>
