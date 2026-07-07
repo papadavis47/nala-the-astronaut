@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import onCouch from "../images/golden-retriever-on-couch.webp";
+---
+
+<section class="w-full relative h-[55vh] md:h-[70vh] overflow-hidden reveal">
+    <Image
+        src={onCouch}
+        alt="Nala curled up on the couch"
+        class="absolute inset-0 w-full h-full object-cover object-[36%_25%]"
+        widths={[768, 1200, 1800]}
+        sizes="100vw"
+    />
+    <div
+        class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10"
+    >
+    </div>
+    <div class="absolute inset-0 flex items-end">
+        <div
+            class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] mx-auto px-6 lg:px-8 pb-10 md:pb-16"
+        >
+            <p
+                class="text-sm font-semibold uppercase tracking-widest text-gold mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
+            >
+                Home base
+            </p>
+            <h2
+                class="text-3xl md:text-5xl font-bold text-white max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
+            >
+                Expert-level lounging, every single day.
+            </h2>
+        </div>
+    </div>
+</section>

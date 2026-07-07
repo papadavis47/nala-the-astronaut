@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+    image: ImageMetadata;
+    imageAlt: string;
+    eyebrow: string;
+    title: string;
+    /** When true, the image sits on the left and text on the right. */
+    reverse?: boolean;
+}
+
+const { image, imageAlt, eyebrow, title, reverse = false } = Astro.props;
+---
+
+<section class="w-full flex justify-center">
+    <div
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-16 md:py-24"
+    >
+        <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-center reveal">
+            <figure class:list={["relative", reverse ? "md:order-1" : "md:order-2"]}>
+                <div
+                    class="rounded-3xl overflow-hidden border border-border shadow-xl aspect-4/5"
+                >
+                    <Image
+                        src={image}
+                        alt={imageAlt}
+                        class="w-full h-full object-cover"
+                        widths={[400, 600, 800]}
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                    />
+                </div>
+            </figure>
+            <div
+                class:list={[
+                    "text-center md:text-left",
+                    reverse ? "md:order-2" : "md:order-1",
+                ]}
+            >
+                <p
+                    class="text-sm font-semibold uppercase tracking-widest text-gold mb-4"
+                >
+                    {eyebrow}
+                </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-5">{title}</h2>
+                <div class="space-y-4 text-lg text-muted">
+                    <slot />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import puppyCloseup from "../images/golden-retriever-puppy-closeup.webp";
+import nalaPlaying from "../images/nala-playing.webp";
+import mariaWithNala from "../images/maria-with-nala.webp";
+
+const previews = [puppyCloseup, nalaPlaying, mariaWithNala];
+---
+
+<section class="w-full flex justify-center border-t border-border bg-surface">
+    <div
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-16 md:py-24"
+    >
+        <div class="text-center mb-10 reveal">
+            <p
+                class="text-sm font-semibold uppercase tracking-widest text-gold mb-4"
+            >
+                More of Nala
+            </p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">The gallery</h2>
+            <p class="text-lg text-muted max-w-2xl mx-auto">
+                A growing collection of the cutest golden retriever in the
+                galaxy.
+            </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 reveal">
+            {
+                previews.map((img, i) => (
+                    <div
+                        class:list={[
+                            "rounded-2xl overflow-hidden border border-border shadow-lg aspect-square group",
+                            i === 2 &&
+                                "col-span-2 md:col-span-1 aspect-video md:aspect-square",
+                        ]}
+                    >
+                        <Image
+                            src={img}
+                            alt="Nala the golden retriever"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            widths={[300, 500, 700]}
+                            sizes="(max-width: 768px) 50vw, 33vw"
+                        />
+                    </div>
+                ))
+            }
+        </div>
+        <div class="text-center mt-10 reveal">
+            <a
+                href="/gallery"
+                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-gradient text-on-gold font-semibold rounded-full hover:scale-[1.03] transition-transform shadow-lg shadow-gold/20"
+            >
+                Explore the full gallery
+            </a>
+        </div>
+    </div>
+</section>

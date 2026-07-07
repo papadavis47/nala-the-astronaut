@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../images/golden-retriever-puppy-closeup.webp";
+---
+
+<section class="w-full flex justify-center overflow-hidden">
+    <div
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-16 md:py-24"
+    >
+        <div
+            class="grid md:grid-cols-2 gap-10 md:gap-14 items-center"
+        >
+            <!-- Text -->
+            <div class="order-2 md:order-1 text-center md:text-left">
+                <p
+                    class="inline-flex items-center gap-2 text-sm font-medium text-muted mb-5 border border-border rounded-full px-3 py-1"
+                >
+                    <span class="w-2 h-2 rounded-full bg-gold-gradient"></span>
+                    Built with the Astro framework
+                </p>
+                <h1
+                    class="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-5"
+                >
+                    Nala <span class="text-gold-gradient">the Astronaut</span>
+                </h1>
+                <p class="text-lg md:text-xl text-muted max-w-md mx-auto md:mx-0 mb-8">
+                    A very good golden retriever — and the mascot of my little
+                    corner for learning
+                    <a
+                        href="https://astro.build"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gold font-semibold hover:underline underline-offset-4">Astro</a
+                    >. The name? Half framework pun, half tiny space explorer. 🚀
+                </p>
+                <div
+                    class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
+                >
+                    <a
+                        href="/about"
+                        class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-gradient text-on-gold font-semibold rounded-full hover:scale-[1.03] transition-transform shadow-lg shadow-gold/20"
+                    >
+                        Meet Nala
+                    </a>
+                    <a
+                        href="/gallery"
+                        class="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-full border border-border text-text hover:bg-surface transition-colors"
+                    >
+                        View the Gallery
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image -->
+            <div class="order-1 md:order-2 relative">
+                <div
+                    class="absolute -inset-4 bg-gold-gradient rounded-[2rem] blur-2xl opacity-20"
+                >
+                </div>
+                <div
+                    class="relative rounded-[1.75rem] overflow-hidden border border-border shadow-2xl aspect-4/3"
+                >
+                    <Image
+                        src={heroImage}
+                        alt="Nala, a golden retriever puppy, gazing at the camera"
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                        widths={[480, 768, 1024]}
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
