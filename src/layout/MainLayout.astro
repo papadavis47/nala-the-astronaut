@@ -73,35 +73,41 @@ const {
 
   /* Tailwind Preflight already handles the reset (box-sizing, margin/padding
      zeroing, img display + max-width, form font inheritance). We only add what
-     Preflight doesn't. Note: no unlayered `* { margin: 0 }` here — it would beat
-     every layered margin utility (mb-*, mt-*, …) and silently disable them. */
-  html {
-    scroll-behavior: smooth;
-  }
+     Preflight doesn't.
 
-  body {
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    transition:
-      background-color 0.4s ease,
-      color 0.4s ease;
-  }
+     All element defaults go in @layer base so per-element utilities can override
+     them (e.g. text-white on a heading over a dark image, or leading-* on body).
+     Unlayered element rules beat every layered utility regardless of specificity
+     — that's what previously killed margin utilities and heading text colors. */
+  @layer base {
+    html {
+      scroll-behavior: smooth;
+    }
 
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
+    body {
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply font-display text-heading tracking-tight;
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      overflow-wrap: break-word;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply font-display text-heading tracking-tight;
+    }
   }
 
   ::selection {
