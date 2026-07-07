@@ -1,2 +1,2 @@
-declare module '@fontsource/roboto';
-declare module '@fontsource/open-sans';
+declare module '@fontsource-variable/space-grotesk';
+declare module '@fontsource-variable/inter';

@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full flex justify-center border-t border-border bg-background">
+    <div
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-10"
+    >
+        <div
+            class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left"
+        >
+            <!-- Brand -->
+            <a href="/" class="flex items-center gap-2.5 group">
+                <span
+                    class="grid place-items-center w-8 h-8 rounded-full bg-gold-gradient text-on-gold"
+                >
+                    <Icon name="mdi:dog" class="w-4 h-4" />
+                </span>
+                <span class="font-display font-bold tracking-tight">
+                    Nala<span class="text-gold-gradient"> the Astronaut</span>
+                </span>
+            </a>
+
+            <!-- Quick Links -->
+            <nav class="flex justify-center gap-6 text-sm font-medium">
+                <a href="/" class="text-muted hover:text-gold transition-colors">Home</a>
+                <a href="/about" class="text-muted hover:text-gold transition-colors">About</a>
+                <a href="/gallery" class="text-muted hover:text-gold transition-colors">Gallery</a>
+            </nav>
+
+            <!-- Social -->
+            <a
+                href="https://github.com/papadavis47/nala-the-astronaut"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grid place-items-center w-9 h-9 rounded-md text-muted hover:text-gold hover:bg-surface transition-colors"
+                aria-label="View on GitHub"
+            >
+                <Icon name="mdi:github" class="w-5 h-5" />
+            </a>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-border text-center">
+            <p class="text-muted! text-sm">
+                Made with &hearts; by the Davis Family · {currentYear} · Built with
+                <a
+                    href="https://astro.build"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-gold hover:underline underline-offset-4">Astro</a
+                > 🚀
+            </p>
+        </div>
+    </div>
+</footer>

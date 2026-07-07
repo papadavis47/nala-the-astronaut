@@ -14,10 +14,10 @@ importers:
       '@astrojs/solid-js':
         specifier: ^7.0.1
         version: 7.0.1(@types/node@26.1.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.14)(yaml@2.9.0)
-      '@fontsource/open-sans':
-        specifier: ^5.2.7
-        version: 5.2.7
-      '@fontsource/roboto':
+      '@fontsource-variable/inter':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource-variable/space-grotesk':
         specifier: ^5.2.10
         version: 5.2.10
       '@iconify-json/grommet-icons':
@@ -543,11 +543,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/open-sans@5.2.7':
-    resolution: {integrity: sha512-8yfgDYjE5O0vmTPdrcjV35y4yMnctsokmi9gN49Gcsr0sjzkMkR97AnKDe6OqZh2SFkYlR28fxOvi21bYEgMSw==}
+  '@fontsource-variable/inter@5.2.8':
+    resolution: {integrity: sha512-kOfP2D+ykbcX/P3IFnokOhVRNoTozo5/JxhAIVYLpea/UBmCQ/YWPBfWIDuBImXX/15KH+eKh4xpEUyS2sQQGQ==}
 
-  '@fontsource/roboto@5.2.10':
-    resolution: {integrity: sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==}
+  '@fontsource-variable/space-grotesk@5.2.10':
+    resolution: {integrity: sha512-yJQO/o35/hAP3CFnpdFTwQku2yzJOae2HIpBmqkOVoxhhXJaQP3g+b6Jrz7u+eI7A5ZdCIf88uMWpBJdFiGr5w==}
 
   '@iconify-json/grommet-icons@1.2.4':
     resolution: {integrity: sha512-Muj6ViEbR235PWxDe3oM3AFVG4BtaeIihfJPhQiHWPShy24MAscq02+T1IFwIMy0MoTw+V71p5EbNa69xF7SmA==}
@@ -2844,9 +2844,9 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@fontsource/open-sans@5.2.7': {}
+  '@fontsource-variable/inter@5.2.8': {}
 
-  '@fontsource/roboto@5.2.10': {}
+  '@fontsource-variable/space-grotesk@5.2.10': {}
 
   '@iconify-json/grommet-icons@1.2.4':
     dependencies:

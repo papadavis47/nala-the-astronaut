@@ -7,20 +7,8 @@
     "noImplicitReturns": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@images/*": [
-        "src/images/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@types/*": [
-        "src/types/*"
+      "@/*": [
+        "src/*"
       ]
     },
     "jsx": "react-jsx",

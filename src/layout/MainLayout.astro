@@ -1,0 +1,134 @@
+---
+import Footer from './Footer.astro';
+import NavBar from './NavBar.astro';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/inter';
+import '@/styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'A golden retriever, and a little playground for the Astro framework — built by the Davis family.',
+} = Astro.props;
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='description' content={description} />
+    <title>{title}</title>
+    <!-- Set theme before paint to avoid flash -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)'
+        ).matches;
+        const dark = stored ? stored === 'dark' : prefersDark;
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script>
+  </head>
+  <body class='font-body bg-background text-text min-h-screen w-full'>
+    <div class='min-h-screen w-full flex flex-col'>
+      <NavBar />
+      <main class='flex-1 w-full flex flex-col items-center'>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+
+    <!-- Scroll reveal -->
+    <script>
+      const items = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && items.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        items.forEach((el) => io.observe(el));
+      } else {
+        items.forEach((el) => el.classList.add('reveal-visible'));
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @reference "../styles/global.css";
+
+  /* CSS Reset */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-heading tracking-tight;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--on-gold);
+  }
+</style>

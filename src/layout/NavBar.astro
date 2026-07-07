@@ -1,0 +1,221 @@
+---
+import { Icon } from "astro-icon/components";
+
+const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/gallery", label: "Gallery" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+    class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+>
+    <nav class="flex justify-center">
+        <div
+            class="flex justify-between w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-4 items-center"
+        >
+            <a href="/" class="flex items-center gap-2.5 group">
+                <span
+                    class="grid place-items-center w-9 h-9 rounded-full bg-gold-gradient text-on-gold transition-transform group-hover:scale-110"
+                >
+                    <Icon name="mdi:dog" class="w-5 h-5" />
+                </span>
+                <span class="font-display font-bold text-lg tracking-tight">
+                    Nala<span class="text-gold-gradient"> the Astronaut</span>
+                </span>
+            </a>
+
+            <div class="flex items-center gap-1 md:gap-2">
+                <ul class="hidden md:flex md:items-center md:gap-1">
+                    {
+                        navLinks.map(({ href, label }) => (
+                            <li>
+                                <a
+                                    href={href}
+                                    class:list={[
+                                        "relative block px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                                        "hover:text-gold nav-link",
+                                        currentPath === href
+                                            ? "text-gold nav-link-active"
+                                            : "text-text",
+                                    ]}
+                                >
+                                    {label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+
+                <button
+                    id="theme-toggle"
+                    class="grid place-items-center w-9 h-9 rounded-md text-text hover:bg-surface transition-colors"
+                    aria-label="Toggle dark mode"
+                >
+                    <Icon name="mdi:weather-sunny" class="w-5 h-5 icon-sun" />
+                    <Icon name="mdi:weather-night" class="w-5 h-5 icon-moon" />
+                </button>
+
+                <button
+                    id="menu-toggle"
+                    class="md:hidden grid place-items-center w-9 h-9 rounded-md text-text hover:bg-surface transition-colors"
+                    aria-label="Toggle menu"
+                    aria-expanded="false"
+                >
+                    <Icon name="radix-icons:hamburger-menu" class="w-5 h-5" />
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile menu overlay + slide-out live OUTSIDE <header>: the header's
+     backdrop-blur creates a containing block that would otherwise trap these
+     fixed elements to the header's size instead of the viewport. -->
+<div
+    id="menu-overlay"
+    class="fixed inset-0 bg-black/60 z-[55] opacity-0 invisible transition-opacity duration-300 md:hidden"
+>
+</div>
+
+<aside
+    id="mobile-menu"
+    class="fixed top-0 right-0 h-full w-72 bg-background z-[60] transform translate-x-full transition-transform duration-300 ease-out md:hidden shadow-2xl border-l border-border"
+>
+        <div class="flex flex-col h-full">
+            <div
+                class="flex items-center justify-between p-4 border-b border-border"
+            >
+                <span class="font-display font-bold text-lg">
+                    Nala<span class="text-gold-gradient"> the Astronaut</span>
+                </span>
+                <button
+                    id="menu-close"
+                    class="grid place-items-center w-9 h-9 rounded-md hover:bg-surface transition-colors"
+                    aria-label="Close menu"
+                >
+                    <Icon name="mdi:close" class="w-5 h-5" />
+                </button>
+            </div>
+
+            <nav class="flex-1 py-6">
+                <ul class="space-y-1 px-4">
+                    {
+                        navLinks.map(({ href, label }, index) => (
+                            <li
+                                class="mobile-menu-item opacity-0 transform translate-x-4"
+                                style={`transition-delay: ${index * 60}ms`}
+                            >
+                                <a
+                                    href={href}
+                                    class:list={[
+                                        "flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all duration-200",
+                                        "hover:bg-surface",
+                                        currentPath === href
+                                            ? "text-gold bg-surface"
+                                            : "text-text",
+                                    ]}
+                                >
+                                    <Icon
+                                        name={
+                                            href === "/"
+                                                ? "mdi:home"
+                                                : href === "/about"
+                                                  ? "mdi:paw"
+                                                  : "mdi:image-multiple"
+                                        }
+                                        class="w-5 h-5"
+                                    />
+                                    {label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+
+            <div class="p-4 border-t border-border">
+                <p class="text-muted! text-sm text-center">
+                    Built with Astro 🚀
+                </p>
+            </div>
+        </div>
+    </aside>
+
+<script>
+    // Theme toggle (icon visibility is handled purely in CSS via the .dark class)
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle?.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+
+    // Mobile menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuOverlay = document.getElementById("menu-overlay");
+    const menuItems = document.querySelectorAll(".mobile-menu-item");
+
+    function openMenu() {
+        mobileMenu?.classList.remove("translate-x-full");
+        menuOverlay?.classList.remove("opacity-0", "invisible");
+        menuOverlay?.classList.add("opacity-100", "visible");
+        menuToggle?.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+        menuItems.forEach((item) => {
+            item.classList.remove("opacity-0", "translate-x-4");
+            item.classList.add("opacity-100", "translate-x-0");
+        });
+    }
+
+    function closeMenu() {
+        mobileMenu?.classList.add("translate-x-full");
+        menuOverlay?.classList.add("opacity-0", "invisible");
+        menuOverlay?.classList.remove("opacity-100", "visible");
+        menuToggle?.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+        menuItems.forEach((item) => {
+            item.classList.add("opacity-0", "translate-x-4");
+            item.classList.remove("opacity-100", "translate-x-0");
+        });
+    }
+
+    menuToggle?.addEventListener("click", openMenu);
+    menuClose?.addEventListener("click", closeMenu);
+    menuOverlay?.addEventListener("click", closeMenu);
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+    });
+</script>
+
+<style>
+    @reference "../styles/global.css";
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.35rem;
+        height: 2px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link-active::after {
+        transform: scaleX(1);
+    }
+
+    .mobile-menu-item {
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+</style>
