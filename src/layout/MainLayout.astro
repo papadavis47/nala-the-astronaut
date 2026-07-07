@@ -71,17 +71,10 @@ const {
 <style is:global>
   @reference "../styles/global.css";
 
-  /* CSS Reset */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  * {
-    margin: 0;
-  }
-
+  /* Tailwind Preflight already handles the reset (box-sizing, margin/padding
+     zeroing, img display + max-width, form font inheritance). We only add what
+     Preflight doesn't. Note: no unlayered `* { margin: 0 }` here — it would beat
+     every layered margin utility (mb-*, mt-*, …) and silently disable them. */
   html {
     scroll-behavior: smooth;
   }
@@ -92,22 +85,6 @@ const {
     transition:
       background-color 0.4s ease,
       color 0.4s ease;
-  }
-
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
-
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
   }
 
   p,
