@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import withToy from "../images/nala1.webp";
+
+const facts = [
+    { label: "Breed", value: "Golden Retriever" },
+    { label: "Joined the family", value: "A few very good years ago" },
+    { label: "Favorite things", value: "Fetch, cuddles, and treat detection" },
+    { label: "Superpower", value: "Unconditional love (and puppy eyes)" },
+];
+---
+
+<section class="w-full flex justify-center bg-surface border-b border-border">
+    <div
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-16 md:py-24"
+    >
+        <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-center reveal">
+            <figure class="relative order-1">
+                <div
+                    class="rounded-3xl overflow-hidden border border-border shadow-xl aspect-4/5"
+                >
+                    <Image
+                        src={withToy}
+                        alt="Nala with her favorite toy"
+                        class="w-full h-full object-cover"
+                        widths={[400, 600, 800]}
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                    />
+                </div>
+            </figure>
+            <div class="order-2 text-center md:text-left">
+                <p
+                    class="text-sm font-semibold uppercase tracking-widest text-gold mb-4"
+                >
+                    The quick facts
+                </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                    Nala at a glance
+                </h2>
+                <dl class="space-y-5 text-left">
+                    {
+                        facts.map(({ label, value }) => (
+                            <div class="border-b border-border pb-4">
+                                <dt class="text-sm font-semibold uppercase tracking-wide text-gold mb-1">
+                                    {label}
+                                </dt>
+                                <dd class="text-lg text-text">{value}</dd>
+                            </div>
+                        ))
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
+</section>

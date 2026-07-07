@@ -1,0 +1,35 @@
+---
+export interface Props {
+    eyebrow?: string;
+    title: string;
+    body?: string;
+    href: string;
+    label: string;
+}
+
+const { eyebrow, title, body, href, label } = Astro.props;
+---
+
+<section class="w-full flex justify-center border-t border-border bg-surface">
+    <div class="w-full max-w-3xl px-6 lg:px-8 py-16 md:py-20 text-center reveal">
+        {
+            eyebrow && (
+                <p class="text-sm font-semibold uppercase tracking-widest text-gold mb-4">
+                    {eyebrow}
+                </p>
+            )
+        }
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+        {
+            body && (
+                <p class="text-lg text-muted mb-8 max-w-2xl mx-auto">{body}</p>
+            )
+        }
+        <a
+            href={href}
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-gradient text-on-gold font-semibold rounded-full hover:scale-[1.03] transition-transform shadow-lg shadow-gold/20"
+        >
+            {label}
+        </a>
+    </div>
+</section>

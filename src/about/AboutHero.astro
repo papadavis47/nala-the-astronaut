@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import portrait from "../images/nalita.webp";
+---
+
+<section class="w-full flex justify-center overflow-hidden border-b border-border">
+    <div
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-16 md:py-24"
+    >
+        <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+            <div class="order-2 md:order-1 text-center md:text-left">
+                <p
+                    class="text-sm font-semibold uppercase tracking-widest text-gold mb-4"
+                >
+                    About Nala
+                </p>
+                <h1
+                    class="font-display font-bold text-5xl md:text-6xl leading-[1.05] mb-5"
+                >
+                    Meet <span class="text-gold-gradient">Nala</span>
+                </h1>
+                <p class="text-lg md:text-xl text-muted max-w-md mx-auto md:mx-0">
+                    A golden retriever who talked her way into the Davis family
+                    and never left. Here's a little about the very good girl
+                    behind the name.
+                </p>
+            </div>
+            <div class="order-1 md:order-2 relative">
+                <div
+                    class="absolute -inset-4 bg-gold-gradient rounded-[2rem] blur-2xl opacity-20"
+                >
+                </div>
+                <div
+                    class="relative rounded-[1.75rem] overflow-hidden border border-border shadow-2xl aspect-4/5"
+                >
+                    <Image
+                        src={portrait}
+                        alt="Portrait of Nala, a golden retriever"
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                        widths={[480, 768, 1024]}
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
