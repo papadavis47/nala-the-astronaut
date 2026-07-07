@@ -1,0 +1,151 @@
+---
+import { Image, getImage } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { galleryImages } from "./gallery-images";
+
+// Pre-generate a large version of each photo for the lightbox.
+const items = await Promise.all(
+    galleryImages.map(async (img) => ({
+        ...img,
+        full: (await getImage({ src: img.src, width: 1600, format: "webp" }))
+            .src,
+    })),
+);
+---
+
+<section class="w-full flex justify-center">
+    <div
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-12 md:py-16"
+    >
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6">
+            {
+                items.map((image, i) => (
+                    <button
+                        type="button"
+                        class="gallery-item group relative mb-4 md:mb-6 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-border shadow-lg cursor-zoom-in"
+                        data-index={i}
+                        data-full={image.full}
+                        data-caption={image.caption}
+                        aria-label={`View: ${image.caption}`}
+                    >
+                        <Image
+                            src={image.src}
+                            alt={image.alt}
+                            class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                            widths={[300, 500, 700]}
+                            sizes="(max-width: 768px) 50vw, 33vw"
+                        />
+                        <span class="pointer-events-none absolute inset-x-0 bottom-0 p-4 pt-10 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white text-sm font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+                                {image.caption}
+                            </span>
+                        </span>
+                    </button>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div
+    id="lightbox"
+    class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+    aria-hidden="true"
+>
+    <button
+        id="lightbox-close"
+        class="absolute top-4 right-4 grid place-items-center w-11 h-11 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        aria-label="Close"
+    >
+        <Icon name="mdi:close" class="w-6 h-6" />
+    </button>
+    <button
+        id="lightbox-prev"
+        class="absolute left-2 md:left-4 grid place-items-center w-11 h-11 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        aria-label="Previous"
+    >
+        <Icon name="mdi:chevron-left" class="w-7 h-7" />
+    </button>
+    <button
+        id="lightbox-next"
+        class="absolute right-2 md:right-4 grid place-items-center w-11 h-11 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        aria-label="Next"
+    >
+        <Icon name="mdi:chevron-right" class="w-7 h-7" />
+    </button>
+    <figure class="flex flex-col items-center gap-4">
+        <img
+            id="lightbox-img"
+            src=""
+            alt=""
+            class="max-h-[80vh] w-auto rounded-lg shadow-2xl object-contain"
+        />
+        <figcaption
+            id="lightbox-caption"
+            class="text-white text-sm font-medium text-center"
+        >
+        </figcaption>
+    </figure>
+</div>
+
+<script>
+    const tiles = Array.from(
+        document.querySelectorAll<HTMLElement>(".gallery-item"),
+    );
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img") as HTMLImageElement | null;
+    const lbCap = document.getElementById("lightbox-caption");
+
+    if (lb && lbImg && lbCap && tiles.length) {
+        let current = 0;
+
+        const open = (i: number) => {
+            current = (i + tiles.length) % tiles.length;
+            const tile = tiles[current];
+            lbImg.src = tile.dataset.full ?? "";
+            lbImg.alt = tile.querySelector("img")?.alt ?? "";
+            lbCap.textContent = tile.dataset.caption ?? "";
+            lb.classList.remove("hidden");
+            lb.classList.add("flex");
+            lb.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+        };
+
+        const close = () => {
+            lb.classList.add("hidden");
+            lb.classList.remove("flex");
+            lb.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+        };
+
+        tiles.forEach((tile, i) => tile.addEventListener("click", () => open(i)));
+
+        document
+            .getElementById("lightbox-close")
+            ?.addEventListener("click", close);
+        document
+            .getElementById("lightbox-prev")
+            ?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                open(current - 1);
+            });
+        document
+            .getElementById("lightbox-next")
+            ?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                open(current + 1);
+            });
+
+        lb.addEventListener("click", (e) => {
+            if (e.target === lb) close();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (lb.classList.contains("hidden")) return;
+            if (e.key === "Escape") close();
+            if (e.key === "ArrowLeft") open(current - 1);
+            if (e.key === "ArrowRight") open(current + 1);
+        });
+    }
+</script>
