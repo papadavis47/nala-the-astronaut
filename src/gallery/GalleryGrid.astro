@@ -15,7 +15,7 @@ const items = await Promise.all(
 
 <section class="w-full flex justify-center">
     <div
-        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-[1400px] px-6 lg:px-8 py-12 md:py-16"
+        class="w-full max-w-5xl lg:max-w-[85vw] 2xl:max-w-350 px-6 lg:px-8 py-12 md:py-16"
     >
         <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6">
             {
@@ -35,7 +35,7 @@ const items = await Promise.all(
                             widths={[300, 500, 700]}
                             sizes="(max-width: 768px) 50vw, 33vw"
                         />
-                        <span class="pointer-events-none absolute inset-x-0 bottom-0 p-4 pt-10 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="pointer-events-none absolute inset-x-0 bottom-0 p-4 pt-10 bg-linear-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                             <span class="text-white text-sm font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                                 {image.caption}
                             </span>
